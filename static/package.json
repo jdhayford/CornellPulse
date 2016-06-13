@@ -28,6 +28,8 @@
     "flux": "^2.1.1",
     "jquery": "^3.0.0",
     "react": "^15.1.0",
+    "react-dom": "^15.1.0",
+    "react-loader": "^2.4.0",
     "reactify": "^1.1.1",
     "uglify-js": "^2.6.2",
     "watchify": "^3.7.0",
