@@ -30,6 +30,13 @@
     "react": "^15.1.0",
     "reactify": "^1.1.1",
     "uglify-js": "^2.6.2",
-    "watchify": "^3.7.0"
+    "watchify": "^3.7.0",
+    "webpack": "^1.12.9",
+    "webpack-dev-server": "^1.14.1"
+  },
+  "scripts": {
+    "dev": "./node_modules/.bin/webpack-dev-server --content-base src",
+    "test": "echo \"Error: no test specified\" && exit 1"
   }
+
 }
