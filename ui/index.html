@@ -1,0 +1,88 @@
+<!-- 
+Layout with CSS Regions and the new version of CSS Flexbox
+Flexbox spec: http://www.w3.org/TR/css3-flexbox/
+-->
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>Playground</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="css/style.css" media="all" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+  <div class="flex-container">
+
+    <div id="header">{Cornell Pulse}</div>
+    <div id="nav-wrapper">
+      <div id="nav">
+        <div id="fitness" class="navBlock">Fitness</div>
+        <div id="dining" class="navBlock">Food</div>
+      </div>
+      <div id="loc" class="hide">
+        <div class="locBlock active">All</div>
+        <div class="locBlock">North</div>
+        <div class="locBlock">West</div>
+        <div class="locBlock">Central</div>
+      </div>
+    </div>
+
+    <div class="flex-row">
+      <div class="flex-top">
+        <div class="flex-title">Appel<hr></hr></div>
+        <div class="flex-status">Open</div>
+        
+      </div>
+      <div class="flex-bot">
+        <div class="flex-bar"></div>
+      </div>
+    </div>
+    
+    <div class="flex-row">
+      <div class="flex-top">
+        <div class="flex-title">Newman<hr></hr></div>
+        <div class="flex-status">Closing Soon</div>
+      </div>
+      <div class="flex-bot">
+        <div class="flex-bar"></div>
+      </div>
+    </div>
+
+    <div class="flex-row">
+      <div class="flex-top">
+        <div class="flex-title">Noyes<hr></hr></div>
+        <div class="flex-status">Open</div>
+      </div>
+      <div class="flex-bot">
+        <div class="flex-bar"></div>
+      </div>
+    </div>
+
+    <div class="flex-row">
+      <div class="flex-top">
+        <div class="flex-title">Teagle Up<hr></hr></div>
+        <div class="flex-status">Closed</div>
+      </div>
+      <div class="flex-bot">
+        <!-- <div class="flex-bar"></div> -->
+      </div>
+    </div>
+
+    <div class="flex-row">
+      <div class="flex-top">
+        <div class="flex-title">Teagle Down<hr></hr></div>
+        <div class="flex-status">Open</div>
+      </div>
+      <div class="flex-bot">
+        <div class="flex-bar"></div>
+      </div>
+    </div>
+
+  </div>
+<script src="js/progressbar.js"></script>
+<script src="js/builder.js"></script>
+</body>
+</html>

@@ -1,0 +1,186 @@
+html,body {
+  /*background-color: #CFD8DC;*/
+  margin: 0;
+  height:100%;
+}
+
+hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #99BDCB;
+    margin-top: -4px;
+
+}
+
+
+.flex-container {
+    display: flex;
+    margin: auto;
+    align-items: center;
+    flex-direction: column;
+    height: 100%;
+    margin:0px 5% 0px 5%;
+    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
+  font-size: 22px;
+  color: #ecf0f2;
+  /*background-color: #455A64;*/
+  background: #525658; /* For browsers that do not support gradients */
+  background: -webkit-linear-gradient(#525658, #34648C); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(#525658, #34648C); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(#525658, #34648C); /* For Firefox 3.6 to 15 */
+  background: linear-gradient(#525658,#525658,#525658, #34648C); /* Standard syntax */
+  
+}
+
+#header {
+  display: flex;
+  margin: 0;
+  max-width: 700px;
+  width: 90%;
+  height: 90px;
+  align-items: center;
+  justify-content: center;
+  font-size: 44px;
+  color:#F5F5F5;
+  
+  /*background-color: #303F9F;*/
+  /*background-color: #607d8b;*/
+  /*border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.16), 0 2px 4px rgba(0,0,0,0.23);*/
+}
+
+#nav-wrapper {
+  display: flex;
+  flex-direction: column;
+  margin: 5px;
+  max-width: 600px;
+  width: 80%;
+}
+
+#nav {
+  display: flex;
+  flex-direction: row;  
+  align-items: flex-end;
+  justify-content: space-around;
+  font-size: 30px;
+  color:#99BDCB;
+  border-top: 1px solid  #99BDCB;
+  border-bottom: 1px solid  #99BDCB;
+}
+
+.navBlock {
+  display: flex;
+  flex: 1;
+  margin: 0;
+  align-items: center;
+  justify-content: center;
+}
+.navBlock:hover {
+  background-color: rgba(153,189,203,0.8);
+  color:#525658;
+  cursor: pointer;
+}
+.navBlock.active {
+  background-color:#99BDCB;
+  color:#525658;
+}
+
+#loc.hide {
+    display:none!important;
+}
+
+#loc {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 30px;
+  color:rgba(236,240,242,0.8);
+}
+
+.locBlock {
+  display: flex;
+  flex: 1;
+  height: 25px;
+  margin: 0;
+  justify-content: center;
+  cursor: pointer;
+}
+.locBlock:hover {
+  align-self: flex-end;
+  border-bottom: 1px solid  #99BDCB;
+  border-radius: 0 0 4px 4px;
+}
+.locBlock.active {
+  align-self: flex-end;
+  color:rgba(236,240,242,1);
+  border-bottom: 1px solid  #cbc099;
+  border-radius: 0 0 4px 4px;
+}
+
+.flex-row {
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+   
+    max-width: 600px;
+    width: 80%;
+    height: 90px;
+    /*background-color: #CFD8DC;*/
+    background: linear-gradient(rgba(207,216,220,0.3),rgba(207,216,220,0.4),rgba(207,216,220,0.5)); /* Standard syntax */
+    border-radius: 4px;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+    cursor: pointer;
+}
+
+.flex-row:hover {
+  margin-top: 9px;
+  margin-bottom: 11px;
+  box-shadow: 0 9px 18px rgba(0,0,0,0.25), 0 6px 12px rgba(0,0,0,0.22);
+}
+
+.flex-top {
+    display: flex;
+    flex: 5;
+    flex-direction: row;
+    padding:10px; 
+
+}
+
+.flex-title {
+    /*border: 1px solid;*/
+    flex:3;
+     
+    font-size: 28px;
+}
+
+.flex-status {
+    display: flex;
+    font-size: 18px;
+    flex:2;
+    /*font-style: italic;*/
+    justify-content:flex-end;
+    /*border: 1px solid;*/
+}
+
+.flex-bot {
+    display: flex;
+    width:100%;
+    justify-content: flex-end;
+    align-self: baseline;
+    background-color: rgba(100,100,100,0.1);
+    border-radius: 0 0 0 2px;
+    overflow: hidden;
+}
+
+.flex-bar {
+  display: flex;
+  width: 100%;
+  height: 15px;
+}
+
+/*.bar {
+  margin: 20px;
+  width: 400px;
+  
+}*/
