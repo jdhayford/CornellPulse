@@ -1,3 +1,14 @@
+@font-face {
+      font-family: 'indicators';
+      src: url('./font/indicators.eot?40651962');
+      src: url('./font/indicators.eot?40651962#iefix') format('embedded-opentype'),
+           url('./font/indicators.woff?40651962') format('woff'),
+           url('./font/indicators.ttf?40651962') format('truetype'),
+           url('./font/indicators.svg?40651962#indicators') format('svg');
+      font-weight: normal;
+      font-style: normal;
+    }
+
 html,body {
   /*background-color: #CFD8DC;*/
   margin: 0;
@@ -229,11 +240,11 @@ hr {
 .din-row {
     display: flex;
     flex-shrink: 0;
-    flex-direction: column;
+    flex-direction: row;
     margin: 10px;
     max-width: 600px;
     width: 90%;
-    height: 80px;
+    height: 90px;
     /*background-color: #CFD8DC;*/
     background: linear-gradient(rgba(207,216,220,0.3),rgba(207,216,220,0.4),rgba(207,216,220,0.5)); /* Standard syntax */
     border-radius: 4px;
@@ -252,9 +263,17 @@ hr {
   box-shadow: 0 9px 18px rgba(0,0,0,0.25), 0 6px 12px rgba(0,0,0,0.22);
 }
 
+.din-logo {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  margin: 0 0 0 5px;
+
+}
+
 .din-top {
     display: flex;
-    flex: 5;
+    flex: 2;
     padding:10px; 
     flex-direction: column;
 }
@@ -268,24 +287,48 @@ hr {
     display: flex;
     font-size: 14px;
     flex:1;
-    /*font-style: italic;*/
-    justify-content:flex-end;
-    /*border: 1px solid;*/
+    padding-left: 5px; /* Get rid of meeeeee */ 
+    justify-content:flex-start;
+    color:#525658;
 }
 
-.din-bot {
-    display: flex;
-    flex:2;
-    width:100%;
-    justify-content: flex-end;
-    align-self: baseline;
-    background-color: rgba(100,100,100,0.1);
-    border-radius: 0 0 0 2px;
-    overflow: hidden;
-}
 
-.flex-bar {
+
+.flex-indicators {
   display: flex;
-  width: 100%;
-  height: 15px;
+  flex: 3;
+  align-items: center;
+  justify-content: space-around;
+}
+.progress{
+  width: 80px;
+  height: 80px;
+
+}
+.track, .fill{
+  fill: rgba(0, 0, 0, 0);
+  stroke:#98ff82;
+  stroke-width: 5;
+}
+.track{
+  stroke: rgba(0, 0, 0, 0.3);
+}
+.fill{
+  
+  stroke-dasharray: 150.72259521484375;
+  stroke-dashoffset: 150.72259521484375;
+  transition: stroke-dashoffset 1s, stroke 1s;
+}
+
+.icon
+{
+  fill:#98ff82;
+  font-family: "indicators";
+  font-size: 250%;
+  /* Font smoothing. That was taken from TWBS */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+ stroke: none;
+ transition: fill 1s;
+
 }
