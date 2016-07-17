@@ -22,7 +22,7 @@ hr {
     border-top: 1px solid transparent; /* #99BDCB */
     -moz-border-image: -moz-linear-gradient(left, #99BDCB 25%, rgba(0,0,0,0) 100%);
     -webkit-border-image: -webkit-linear-gradient(left, #99BDCB 25%, rgba(0,0,0,0) 100%);
-    border-image: linear-gradient(to right, #99BDCB 25%, rgba(0,0,0,0) 100%);
+    border-image: linear-gradient(to right, #2b2b2b 25%, rgba(0,0,0,0) 100%);
     border-image-slice: 1;
     margin-top: -4px;
 
@@ -40,15 +40,11 @@ hr {
     height: 100%;
     width:100%;
     margin: auto;
-    font-family:"HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
+    font-family:sansationregular,"HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
   font-size: 22px;
   color: #ecf0f2;
   /*background-color: #455A64;*/
-  background: #525658; /* For browsers that do not support gradients */
-  background: -webkit-linear-gradient(#525658, #34648C); /* For Safari 5.1 to 6.0 */
-  background: -o-linear-gradient(#525658, #34648C); /* For Opera 11.1 to 12.0 */
-  background: -moz-linear-gradient(#525658, #34648C); /* For Firefox 3.6 to 15 */
-  background: linear-gradient(#525658,#525658,#525658, #34648C); /* Standard syntax */
+  background-image: url('pix2.png');
   
 }
 
@@ -56,17 +52,16 @@ hr {
   display: flex;
   margin: 0;
   flex:0 0 auto;
-  max-width: 700px;
+  max-width: 600px;
+  margin-top: 5px;
   width: 90%;
-  height: 55px;
+  height: auto;
   align-items: flex-end;
   justify-content: center;
   font-size: 50px;
   font-family: sansationregular;
-  background: -webkit-linear-gradient(#eee, #99BDCB);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  color:#99BDCB; /*#F5F5F5*/
+  color: #f2f2f2;
+  color: rgba(0,0,0,0);
 }
 
 #nav-wrapper {
@@ -85,9 +80,10 @@ hr {
   align-items: flex-end;
   justify-content: space-around;
   font-size: 30px;
-  color:#99BDCB;
-  border-top: 1px solid  #99BDCB;
-  border-bottom: 1px solid  #99BDCB;
+  /*color:#99BDCB;*/
+  color: #f2f2f2;
+  border-top: 1px solid  #f2f2f2;
+  border-bottom: 1px solid  #f2f2f2;
 }
 
 .navBlock {
@@ -99,13 +95,13 @@ hr {
   justify-content: center;
 }
 .navBlock:hover {
-  background-color: rgba(153,189,203,0.8);
-  color:#525658;
+  background-color: rgba(216,216,216,0.8);
+  color:#2b2b2b;
   cursor: pointer;
 }
 .navBlock.active {
-  background-color:#99BDCB;
-  color:#525658;
+  background-color:rgb(216,216,216);
+  color:#2b2b2b;
 }
 
 #loc.hide {
@@ -117,8 +113,10 @@ hr {
   flex-direction: row;
   align-items: center;
   height: 30px;
-  color:#99BDCB;
+  /*color:#99BDCB;*/
+  color: #f2f2f2;
   /*color:rgba(236,240,242,0.8);*/
+
 }
 
 .locBlock {
@@ -162,7 +160,7 @@ hr {
     width: 90%;
     height: 80px;
     /*background-color: #CFD8DC;*/
-    background: linear-gradient(rgba(207,216,220,0.3),rgba(207,216,220,0.4),rgba(207,216,220,0.5)); /* Standard syntax */
+    background:#5e5e5e;
     border-radius: 4px;
     box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
     -webkit-touch-callout: none;
@@ -246,7 +244,7 @@ hr {
     width: 90%;
     height: 90px;
     /*background-color: #CFD8DC;*/
-    background: linear-gradient(rgba(207,216,220,0.3),rgba(207,216,220,0.4),rgba(207,216,220,0.5)); /* Standard syntax */
+    background-color: #5e5e5e;
     border-radius: 4px;
     box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
     -webkit-touch-callout: none;
@@ -267,27 +265,43 @@ hr {
   display: flex;
   flex: 1;
   align-items: center;
-  margin: 0 0 0 5px;
+  margin: 0 0 0 15px;
+}
 
+.logo {
+  max-height: 70px;
+  max-width: 70px;
+}
+
+@media only screen and (max-width: 500px) {
+  .din-logo {
+    visibility: hidden;
+    display: none;
+  }
 }
 
 .din-top {
     display: flex;
     flex: 2;
-    padding:10px; 
+    padding:15px 0px 0px 15px;
     flex-direction: column;
 }
 
 .din-title {
+    display: flex;
     flex:1;
-    font-size: 16px;
+    font-size: 20px;
+    align-items: flex-start;
+    justify-content: flex-start;
+
 }
 
 .din-status {
     display: flex;
     font-size: 14px;
     flex:1;
-    padding-left: 5px; /* Get rid of meeeeee */ 
+    align-items: flex-end;
+
     justify-content:flex-start;
     color:#525658;
 }
@@ -298,11 +312,14 @@ hr {
   display: flex;
   flex: 3;
   align-items: center;
-  justify-content: space-around;
+  justify-content: flex-end;
+  padding: 10px 15px 10px 0;
 }
 .progress{
-  width: 80px;
-  height: 80px;
+  display: flex;
+  flex: 1;
+  max-width: 80px;
+  max-height: 80px;
 
 }
 .track, .fill{
@@ -311,7 +328,7 @@ hr {
   stroke-width: 5;
 }
 .track{
-  stroke: rgba(0, 0, 0, 0.3);
+  stroke: rgba(0, 0, 0, 0.1);
 }
 .fill{
   

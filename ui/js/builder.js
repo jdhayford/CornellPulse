@@ -55,7 +55,6 @@ $(document).ready(function(){
     percent = Math.random();
     $(value).data('progress',percent);
     shade = getColor(percent);
-    console.log(shade);
     // shade = colorAnim('#98ff82','#ED6A5A',percent)
     // shade = blend_colors('#98ff82','#ED6A5A',percent);
     $(value).children('.fill').css("stroke",shade);

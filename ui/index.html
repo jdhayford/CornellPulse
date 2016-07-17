@@ -5,8 +5,9 @@ Flexbox spec: http://www.w3.org/TR/css3-flexbox/
 <!DOCTYPE HTML>
 <html>
 <head>
-    <title>Playground</title>
+    <title>Cornell Pulse</title>
     <meta charset="UTF-8">
+    <link rel="icon" href="css/cornell.png" type="image/x-icon"/>
     <link rel="stylesheet" href="css/style.css" media="all" />
       <link rel="stylesheet" href="css/stylesheet.css" type="text/css" charset="utf-8" />
      <script   src="https://code.jquery.com/jquery-2.2.4.min.js"   integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="   crossorigin="anonymous"></script>
@@ -15,7 +16,7 @@ Flexbox spec: http://www.w3.org/TR/css3-flexbox/
 <body>
   <div class="flex-container">
 
-    <div id="header">Cornell Pulse</div>
+    <div id="header"><img src="css/cornellpulse.png" width="100%" height="auto"></div>
     <div id="nav-wrapper">
       <div id="nav">
         <div id="fitness" class="navBlock">Fitness</div>
@@ -34,7 +35,7 @@ Flexbox spec: http://www.w3.org/TR/css3-flexbox/
     <div class="fit-wrapper hide">
         <div class="flex-row">
           <div class="flex-top">
-            <div class="flex-title">Appel<hr></hr></div>
+            <div class="flex-title">Appel</div>
             <div class="flex-status">Open</div>
             
           </div>
@@ -45,7 +46,7 @@ Flexbox spec: http://www.w3.org/TR/css3-flexbox/
 
         <div class="flex-row">
           <div class="flex-top">
-            <div class="flex-title">Newman<hr></hr></div>
+            <div class="flex-title">Newman</div>
             <div class="flex-status">Closing Soon</div>
           </div>
           <div class="flex-bot">
@@ -55,7 +56,7 @@ Flexbox spec: http://www.w3.org/TR/css3-flexbox/
 
         <div class="flex-row">
           <div class="flex-top">
-            <div class="flex-title">Noyes<hr></hr></div>
+            <div class="flex-title">Noyes</div>
             <div class="flex-status">Open</div>
           </div>
           <div class="flex-bot">
@@ -65,7 +66,7 @@ Flexbox spec: http://www.w3.org/TR/css3-flexbox/
 
         <div class="flex-row">
           <div class="flex-top">
-            <div class="flex-title">Teagle Up<hr></hr></div>
+            <div class="flex-title">Teagle Up</div>
             <div class="flex-status">Closed</div>
           </div>
           <div class="flex-bot">
@@ -75,7 +76,7 @@ Flexbox spec: http://www.w3.org/TR/css3-flexbox/
 
         <div class="flex-row">
           <div class="flex-top">
-            <div class="flex-title">Teagle Down<hr></hr></div>
+            <div class="flex-title">Teagle Down</div>
             <div class="flex-status">Open</div>
           </div>
           <div class="flex-bot">
@@ -87,89 +88,138 @@ Flexbox spec: http://www.w3.org/TR/css3-flexbox/
 
 
     <div class="din-wrapper">
-        <div class="din-row">
-          <div class="din-top">
-            <div class="din-title">104West!</div>
-            <div class="din-status">Closed</div>
-            
-          </div>
-          <div class="din-bot">
-            <!-- <div class="flex-bar"></div> -->
-          </div>
-        </div>
-
-        <div class="din-row">
-          <div class="din-top">
-            <div class="din-title">Becker House Dining Room</div>
-            <div class="din-status">Closing Soon</div>
-          </div>
-          <div class="din-bot">
-          </div>
-        </div>
-
+        
         <div class="din-row">
           <div class="din-logo">
-            <img src="http://living.sas.cornell.edu/dine/images/HansBetheHouselogo.png" height="75px" width="75px">
+            <img class="logo" src="http://living.sas.cornell.edu/dine/images/104westlogo.png" >
           </div>
           <div class="din-top">
-            <div class="din-title">Cook House Dining Room</div>
-            <div class="din-status">Open</div>
+            <div class="din-title">104West!</div>
+            <!-- <div class="din-status">Open</div> -->
           </div>
             
             <div class="flex-indicators">
-              <svg class="progress" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 80 80" xml:space="preserve">
-                <g class="icon icon-chair"><text x="25%" y="85%">&#xe802;</text></g>
-                <path class="track" transform="translate(-10 8) rotate(45 50 50)" d="M40,72C22.4,72,8,57.6,8,40C8,22.4,22.4,8,40,8c17.6,0,32,14.4,32,32"></path>
-                <path class="fill"  transform="translate(-10 8) rotate(45 50 50)" d="M40,72C22.4,72,8,57.6,8,40C8,22.4,22.4,8,40,8c17.6,0,32,14.4,32,32"></path>
-              </svg>
-              <svg class="progress" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 80 80" xml:space="preserve">
+              <svg class="progress" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 80 80" xml:space="preserve">
                 <g class="icon icon-queue"><text x="25%" y="80%">&#xe804;</text></g>
                 <path class="track" transform="translate(-10 8) rotate(45 50 50)" d="M40,72C22.4,72,8,57.6,8,40C8,22.4,22.4,8,40,8c17.6,0,32,14.4,32,32"></path>
                 <path class="fill" transform="translate(-10 8) rotate(45 50 50)" d="M40,72C22.4,72,8,57.6,8,40C8,22.4,22.4,8,40,8c17.6,0,32,14.4,32,32"></path>
               </svg>
             </div>
-
-            <!-- <div class="flex-bar"></div> -->
-          
         </div>
 
+        
         <div class="din-row">
+          <div class="din-logo">
+            <img class="logo" src="http://living.sas.cornell.edu/dine/images/CarlBeckerHouseCrestlogo.png" >
+          </div>
           <div class="din-top">
-            <div class="din-title">Bethe House Dining Room</div>
-            <div class="din-status">Closed</div>
+            <div class="din-title">Becker House</div>
+            <!-- <div class="din-status">Open</div> -->
           </div>
-          <div class="din-bot">
-            <!-- <div class="flex-bar"></div> -->
+            
+            <div class="flex-indicators">
+              
+              <svg class="progress" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 80 80" xml:space="preserve">
+                <g class="icon icon-queue"><text x="25%" y="80%">&#xe804;</text></g>
+                <path class="track" transform="translate(-10 8) rotate(45 50 50)" d="M40,72C22.4,72,8,57.6,8,40C8,22.4,22.4,8,40,8c17.6,0,32,14.4,32,32"></path>
+                <path class="fill" transform="translate(-10 8) rotate(45 50 50)" d="M40,72C22.4,72,8,57.6,8,40C8,22.4,22.4,8,40,8c17.6,0,32,14.4,32,32"></path>
+              </svg>
+            </div>
+        </div>
+
+                <div class="din-row">
+          <div class="din-logo">
+            <img class="logo" src="http://living.sas.cornell.edu/dine/images/HansBetheHouselogo.png" >
           </div>
+          <div class="din-top">
+            <div class="din-title">Bethe House</div>
+            <!-- <div class="din-status">Open</div> -->
+          </div>
+            
+            <div class="flex-indicators">
+              
+              <svg class="progress" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 80 80" xml:space="preserve">
+                <g class="icon icon-queue"><text x="25%" y="80%">&#xe804;</text></g>
+                <path class="track" transform="translate(-10 8) rotate(45 50 50)" d="M40,72C22.4,72,8,57.6,8,40C8,22.4,22.4,8,40,8c17.6,0,32,14.4,32,32"></path>
+                <path class="fill" transform="translate(-10 8) rotate(45 50 50)" d="M40,72C22.4,72,8,57.6,8,40C8,22.4,22.4,8,40,8c17.6,0,32,14.4,32,32"></path>
+              </svg>
+            </div>
         </div>
 
         <div class="din-row">
+          <div class="din-logo">
+            <img class="logo" src="http://living.sas.cornell.edu/dine/images/AliceCookHouselogo.png" >
+          </div>
+          <div class="din-top">
+            <div class="din-title">Cook House</div>
+            <!-- <div class="din-status">Open</div> -->
+          </div>
+            
+            <div class="flex-indicators">
+              
+              <svg class="progress" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 80 80" xml:space="preserve">
+                <g class="icon icon-queue"><text x="25%" y="80%">&#xe804;</text></g>
+                <path class="track" transform="translate(-10 8) rotate(45 50 50)" d="M40,72C22.4,72,8,57.6,8,40C8,22.4,22.4,8,40,8c17.6,0,32,14.4,32,32"></path>
+                <path class="fill" transform="translate(-10 8) rotate(45 50 50)" d="M40,72C22.4,72,8,57.6,8,40C8,22.4,22.4,8,40,8c17.6,0,32,14.4,32,32"></path>
+              </svg>
+            </div>
+        </div>
+
+        <div class="din-row">
+          <div class="din-logo">
+            <img class="logo" src="http://living.sas.cornell.edu/dine/images/Jansen-sMarketlogo.png" >
+          </div>
           <div class="din-top">
             <div class="din-title">Jansen's Market</div>
-            <div class="din-status">Open</div>
+            <!-- <div class="din-status">Open</div> -->
           </div>
-          <div class="din-bot">
-          </div>
+            
+            <div class="flex-indicators">
+              <svg class="progress" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 80 80" xml:space="preserve">
+                <g class="icon icon-queue"><text x="25%" y="80%">&#xe804;</text></g>
+                <path class="track" transform="translate(-10 8) rotate(45 50 50)" d="M40,72C22.4,72,8,57.6,8,40C8,22.4,22.4,8,40,8c17.6,0,32,14.4,32,32"></path>
+                <path class="fill" transform="translate(-10 8) rotate(45 50 50)" d="M40,72C22.4,72,8,57.6,8,40C8,22.4,22.4,8,40,8c17.6,0,32,14.4,32,32"></path>
+              </svg>
+            </div>
         </div>
 
         <div class="din-row">
+          <div class="din-logo">
+            <img class="logo" src="http://living.sas.cornell.edu/dine/images/WilliamKeetonHouselogo.png" >
+          </div>
           <div class="din-top">
-            <div class="din-title">Keeton House Dining Room</div>
-            <div class="din-status">Open</div>
+            <div class="din-title">Keeton House</div>
+            <!-- <div class="din-status">Open</div> -->
           </div>
-          <div class="din-bot">
-          </div>
+            
+            <div class="flex-indicators">
+              
+              <svg class="progress" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 80 80" xml:space="preserve">
+                <g class="icon icon-queue"><text x="25%" y="80%">&#xe804;</text></g>
+                <path class="track" transform="translate(-10 8) rotate(45 50 50)" d="M40,72C22.4,72,8,57.6,8,40C8,22.4,22.4,8,40,8c17.6,0,32,14.4,32,32"></path>
+                <path class="fill" transform="translate(-10 8) rotate(45 50 50)" d="M40,72C22.4,72,8,57.6,8,40C8,22.4,22.4,8,40,8c17.6,0,32,14.4,32,32"></path>
+              </svg>
+            </div>
         </div>
 
         <div class="din-row">
+          <div class="din-logo">
+            <img class="logo" src="http://living.sas.cornell.edu/dine/images/FloraRoseHouseCrestlogo.png" >
+          </div>
           <div class="din-top">
-            <div class="din-title">Rose House Dining Room</div>
-            <div class="din-status">Open</div>
+            <div class="din-title">Rose House</div>
+            <!-- <div class="din-status">Open</div> -->
           </div>
-          <div class="din-bot">
-          </div>
+            
+            <div class="flex-indicators">
+              
+              <svg class="progress" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 80 80" xml:space="preserve">
+                <g class="icon icon-queue"><text x="25%" y="80%">&#xe804;</text></g>
+                <path class="track" transform="translate(-10 8) rotate(45 50 50)" d="M40,72C22.4,72,8,57.6,8,40C8,22.4,22.4,8,40,8c17.6,0,32,14.4,32,32"></path>
+                <path class="fill" transform="translate(-10 8) rotate(45 50 50)" d="M40,72C22.4,72,8,57.6,8,40C8,22.4,22.4,8,40,8c17.6,0,32,14.4,32,32"></path>
+              </svg>
+            </div>
         </div>
-      </div>
 
   </div>
 <script src="js/progressbar.js"></script>
