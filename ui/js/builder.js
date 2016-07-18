@@ -62,6 +62,25 @@ $(document).ready(function(){
     $(value).children('.icon').css("fill",shade);
   });
   
+  // $.each($('.flex-status'), function (index, value) {
+  //   if ($(value).text() == "Open") {
+  //     $(value).css('color','#98ff82');
+  //   } else if ($(value).text() == "Closed") {
+  //     $(value).css('color','#ED6A5A');
+  //   } else {
+  //     $(value).css('color','rgb(245, 202, 102)');
+  //   }
+  // })
+
+  $.each($('.din-status'), function (index, value) {
+    if ($(value).text() == "Open") {
+      $(value).css('color','#98ff82');
+    } else if ($(value).text() == "Closed") {
+      $(value).css('color','#ED6A5A');
+    } else {
+      $(value).css('color','rgb(245, 202, 102)');
+    }
+  })
 });
 
 // Returns a color from green to red depending

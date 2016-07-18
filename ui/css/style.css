@@ -130,6 +130,7 @@ hr {
   height: 25px;
   margin: 0;
   justify-content: center;
+  color: rgba(216,216,216,0.8);
   }
 .locBlock:hover {
   align-self: flex-end;
@@ -277,18 +278,23 @@ hr {
   max-width: 60px;
 }
 
-@media only screen and (max-width: 500px) {
-  .din-logo {
-    visibility: hidden;
-    display: none;
-  }
-}
 
 .din-left {
     display: flex;
     flex: 2;
     padding:10px 0px 0px 0;
     flex-direction: column;
+}
+
+@media only screen and (max-width: 500px) {
+  .din-logo {
+    visibility: hidden;
+    display: none;
+  }
+
+  .din-left {
+    padding-left: 15px;
+  }
 }
 
 .din-title {
