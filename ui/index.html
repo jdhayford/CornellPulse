@@ -7,6 +7,8 @@ Flexbox spec: http://www.w3.org/TR/css3-flexbox/
 <head>
     <title>Cornell Pulse</title>
     <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
     <link rel="icon" href="css/cornell.png" type="image/x-icon"/>
     <link rel="stylesheet" href="css/style.css" media="all" />
       <link rel="stylesheet" href="css/stylesheet.css" type="text/css" charset="utf-8" />
@@ -19,14 +21,18 @@ Flexbox spec: http://www.w3.org/TR/css3-flexbox/
     <div id="header"><img src="css/cornellpulse.png" width="100%" height="auto"></div>
     <div id="nav-wrapper">
       <div id="nav">
-        <div id="fitness" class="navBlock">Fitness</div>
-        <div id="dining" class="navBlock active">Food</div>
+        <div id="fitness" class="navBlock">
+          <i class="material-icons">fitness_center</i>
+        </div>
+        <div id="dining" class="navBlock active">
+          <i class="material-icons">restaurant</i>
+        </div>
       </div>
       <div id="loc">
         <div class="locBlock active">All</div>
-        <div class="locBlock">North</div>
-        <div class="locBlock">West</div>
-        <div class="locBlock">Central</div>
+        <div class="locBlock">N</div>
+        <div class="locBlock">W</div>
+        <div class="locBlock">C</div>
       </div>
     </div>
 
@@ -93,9 +99,9 @@ Flexbox spec: http://www.w3.org/TR/css3-flexbox/
           <div class="din-logo">
             <img class="logo" src="http://living.sas.cornell.edu/dine/images/104westlogo.png" >
           </div>
-          <div class="din-top">
+          <div class="din-left">
             <div class="din-title">104West!</div>
-            <!-- <div class="din-status">Open</div> -->
+            <div class="din-status">Open</div>
           </div>
             
             <div class="flex-indicators">
@@ -112,7 +118,7 @@ Flexbox spec: http://www.w3.org/TR/css3-flexbox/
           <div class="din-logo">
             <img class="logo" src="http://living.sas.cornell.edu/dine/images/CarlBeckerHouseCrestlogo.png" >
           </div>
-          <div class="din-top">
+          <div class="din-left">
             <div class="din-title">Becker House</div>
             <!-- <div class="din-status">Open</div> -->
           </div>
@@ -131,7 +137,7 @@ Flexbox spec: http://www.w3.org/TR/css3-flexbox/
           <div class="din-logo">
             <img class="logo" src="http://living.sas.cornell.edu/dine/images/HansBetheHouselogo.png" >
           </div>
-          <div class="din-top">
+          <div class="din-left">
             <div class="din-title">Bethe House</div>
             <!-- <div class="din-status">Open</div> -->
           </div>
@@ -150,7 +156,7 @@ Flexbox spec: http://www.w3.org/TR/css3-flexbox/
           <div class="din-logo">
             <img class="logo" src="http://living.sas.cornell.edu/dine/images/AliceCookHouselogo.png" >
           </div>
-          <div class="din-top">
+          <div class="din-left">
             <div class="din-title">Cook House</div>
             <!-- <div class="din-status">Open</div> -->
           </div>
@@ -169,7 +175,7 @@ Flexbox spec: http://www.w3.org/TR/css3-flexbox/
           <div class="din-logo">
             <img class="logo" src="http://living.sas.cornell.edu/dine/images/Jansen-sMarketlogo.png" >
           </div>
-          <div class="din-top">
+          <div class="din-left">
             <div class="din-title">Jansen's Market</div>
             <!-- <div class="din-status">Open</div> -->
           </div>
@@ -187,7 +193,7 @@ Flexbox spec: http://www.w3.org/TR/css3-flexbox/
           <div class="din-logo">
             <img class="logo" src="http://living.sas.cornell.edu/dine/images/WilliamKeetonHouselogo.png" >
           </div>
-          <div class="din-top">
+          <div class="din-left">
             <div class="din-title">Keeton House</div>
             <!-- <div class="din-status">Open</div> -->
           </div>
@@ -206,7 +212,7 @@ Flexbox spec: http://www.w3.org/TR/css3-flexbox/
           <div class="din-logo">
             <img class="logo" src="http://living.sas.cornell.edu/dine/images/FloraRoseHouseCrestlogo.png" >
           </div>
-          <div class="din-top">
+          <div class="din-left">
             <div class="din-title">Rose House</div>
             <!-- <div class="din-status">Open</div> -->
           </div>
