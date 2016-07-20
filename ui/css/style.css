@@ -266,6 +266,10 @@ hr {
   box-shadow: 0 9px 18px rgba(0,0,0,0.25), 0 6px 12px rgba(0,0,0,0.22);
 }
 
+.din-row.hide {
+  display:none;
+}
+
 .din-logo {
   display: flex;
   flex: 1;
@@ -281,8 +285,8 @@ hr {
 
 .din-left {
     display: flex;
-    flex: 2;
-    padding:10px 0px 0px 0;
+    flex: 4;
+    padding:10px 0px 0 15px;
     flex-direction: column;
 }
 
