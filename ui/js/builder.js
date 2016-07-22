@@ -52,7 +52,7 @@ function filterEateries() {
   var filter = $('.locBlock.active').attr('filter');
     $('.din-row').removeClass('show');
     $('.din-row').addClass('hide');
-    
+
     setTimeout(function(){
       $.each($('.din-row'), function (index, value) {
         if ($(value).attr('location').includes(filter)) {
@@ -62,7 +62,7 @@ function filterEateries() {
         } else {
         }
       })
-    },100)
+    },10)
   
 }
 
