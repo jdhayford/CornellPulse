@@ -14,6 +14,8 @@ Flexbox spec: http://www.w3.org/TR/css3-flexbox/
       <link rel="stylesheet" href="css/stylesheet.css" type="text/css" charset="utf-8" />
      <script   src="https://code.jquery.com/jquery-2.2.4.min.js"   integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="   crossorigin="anonymous"></script>
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="js/progressbar.js"></script>
+    <script src="js/swipe.js"></script>
 </head>
 <body>
   <div class="flex-container">
@@ -21,18 +23,18 @@ Flexbox spec: http://www.w3.org/TR/css3-flexbox/
     <div id="header"><img src="css/cornellpulse.png" width="100%" height="auto"></div>
     <div id="nav-wrapper">
       <div id="nav">
-        <div id="dining" class="navBlock active">
+        <div id="din" class="navBlock active">
           <i class="material-icons">restaurant</i>
         </div>
-        <div id="fitness" class="navBlock">
+        <div id="fit" class="navBlock">
           <i class="material-icons">fitness_center</i>
         </div>  
       </div>
       <div id="loc">
-        <div class="locBlock active" filter="">All</div>
-        <div class="locBlock" filter="North">N</div>
-        <div class="locBlock" filter="West">W</div>
-        <div class="locBlock" filter="Central">C</div>
+        <div class="locBlock active" filter="" id="0">All</div>
+        <div class="locBlock" filter="North" id="1">N</div>
+        <div class="locBlock" filter="West" id="2">W</div>
+        <div class="locBlock" filter="Central" id="3">C</div>
       </div>
     </div>
     
@@ -42,7 +44,7 @@ Flexbox spec: http://www.w3.org/TR/css3-flexbox/
   <div class="din-wrapper">
   </div>
 
-  <script src="js/progressbar.js"></script>
+
   <script src="js/builder.js"></script>
   <script src="js/main.js"></script>
 

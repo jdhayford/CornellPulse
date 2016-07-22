@@ -1,11 +1,65 @@
 // progressbar.js@1.0.0 version is used
 // Docs: http://progressbarjs.readthedocs.org/en/1.0.0/
-// Retrieve all elements of class "bar"
-$('.navBlock').on('click', function(){
 
-      $('.navBlock').removeClass('active');
-      $(this).addClass('active');
-      if ($('#dining').hasClass('active')) {
+var state = 'din';
+
+$('.navBlock').on('click', function(){
+      state = $(this).attr('id');
+      updateState(state);
+  });
+
+var activeLocation = 0;
+  $('.locBlock').on('click', function(){
+      activeLocation = $(this).attr('id')*1;
+      filterEateries();
+  });
+
+
+
+// Event handler for swiping
+$(document).swipe({
+    left: function () {
+      console.log('left');
+      if (state == 'din') {
+        activeLocation = (activeLocation+1)%4;
+        filterEateries();
+      }
+    },
+    right: function () {
+      if (state == 'din') {
+        activeLocation = (activeLocation+3)%4;
+        filterEateries();
+      } else {
+        state = 'din';
+        updateState(state);
+      }
+    },
+    up: function () {
+        console.log("up");
+    },
+    down: function () {
+        console.log("down");
+    }
+});
+
+function filterEateries() {
+  $('.locBlock').removeClass('active');
+  $('.locBlock[id="'+activeLocation+'"')
+    .addClass('active');
+  var filter = $('.locBlock.active').attr('filter');
+  $.each($('.din-row'), function (index, value) {
+    if ($(value).attr('location').includes(filter)) {
+      $(value).removeClass('hide');
+    } else {
+      $(value).addClass('hide');
+    }
+  })
+}
+
+function updateState(state) {
+  $('.navBlock').removeClass('active');
+  $("#"+state+"").addClass('active');
+  if (state == 'din') {
         $('#loc').removeClass('hide');
         $('.fit-wrapper').addClass('hide');
         $('.din-wrapper').removeClass('hide');
@@ -14,23 +68,7 @@ $('.navBlock').on('click', function(){
         $('.fit-wrapper').removeClass('hide');
         $('.din-wrapper').addClass('hide');
       }
-  });
-
-  $('.locBlock').on('click', function(){
-      $('.locBlock').removeClass('active');
-      var filter = $(this).attr('filter');
-      console.log(filter);
-      $.each($('.din-row'), function (index, value) {
-        if ($(value).attr('location').includes(filter)) {
-          $(value).removeClass('hide');
-        } else {
-          $(value).addClass('hide');
-        }
-      })
-      $(this).addClass('active');
-  });
-
-
+}
 
 function fitViz() {
 
@@ -107,3 +145,5 @@ function dinViz() {
       return "hsl("+mix.join(',')+")";
       
   }
+
+
