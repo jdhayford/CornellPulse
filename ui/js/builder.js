@@ -20,14 +20,17 @@ var activeLocation = 0;
 $(document).swipe({
     left: function () {
       console.log('left');
-      if (state == 'din') {
-        activeLocation = (activeLocation+1)%4;
+      if (activeLocation == 3) {
+        state = 'fit';
+        updateState(state);
+      } else if (state == 'din') {
+        activeLocation = Math.min(3,activeLocation+1);
         filterEateries();
       }
     },
     right: function () {
       if (state == 'din') {
-        activeLocation = (activeLocation+3)%4;
+        activeLocation = Math.max(0,activeLocation-1);
         filterEateries();
       } else {
         state = 'din';
