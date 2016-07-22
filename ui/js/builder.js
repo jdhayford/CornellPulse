@@ -50,13 +50,20 @@ function filterEateries() {
   $('.locBlock[id="'+activeLocation+'"')
     .addClass('active');
   var filter = $('.locBlock.active').attr('filter');
-  $.each($('.din-row'), function (index, value) {
-    if ($(value).attr('location').includes(filter)) {
-      $(value).removeClass('hide');
-    } else {
-      $(value).addClass('hide');
-    }
-  })
+    $('.din-row').removeClass('show');
+    $('.din-row').addClass('hide');
+    
+    setTimeout(function(){
+      $.each($('.din-row'), function (index, value) {
+        if ($(value).attr('location').includes(filter)) {
+         $(value).removeClass('hide');
+          $(value).addClass('show');
+           
+        } else {
+        }
+      })
+    },100)
+  
 }
 
 function updateState(state) {
