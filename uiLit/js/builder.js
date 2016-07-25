@@ -21,8 +21,7 @@ $(document).swipe({
     left: function () {
       console.log('left');
       if (activeLocation == 3) {
-        state = 'fit';
-        updateState(state);
+        return;
       } else if (state == 'din') {
         activeLocation = Math.min(3,activeLocation+1);
         filterEateries();
@@ -30,8 +29,12 @@ $(document).swipe({
     },
     right: function () {
       if (state == 'din') {
-        activeLocation = Math.max(0,activeLocation-1);
-        filterEateries();
+        if (activeLocation == 0) {
+          return;
+        } else {
+          activeLocation = Math.max(0,activeLocation-1);
+          filterEateries();
+      }
       } else {
         state = 'din';
         updateState(state);

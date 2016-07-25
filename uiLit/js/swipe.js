@@ -12,7 +12,7 @@
 
     var defaults = {
         min: {
-            x: 20,
+            x: 75,
             y: 20
         },
         left: $.noop,
