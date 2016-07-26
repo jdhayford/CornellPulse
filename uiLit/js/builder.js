@@ -3,6 +3,8 @@
 
 var state = 'din';
 
+var height = $('#header').css('height');
+
 $('.navBlock').on('click', function(){
       state = $(this).attr('id');
       updateState(state);
@@ -14,6 +16,29 @@ var activeLocation = 0;
       filterEateries();
   });
 
+// Hide header when scrolling down
+$('.din-wrapper').on({'mousewheel': function(event) {
+    if( ($(window).scrollTop()==0 && $('#header').css('height') == height) && (event.originalEvent.detail > 0 || event.originalEvent.wheelDelta < 0 )) { //alternative options for wheelData: wheelDeltaX & wheelDeltaY
+      //scroll down
+      $('#header').velocity({
+          height:'0',
+          opacity:'0',
+          overflow:'hidden',
+          transform:'translateY(80px)'
+        },300);
+      return false;
+      }
+    }    
+})
+
+// Show header when reaching the top
+$('.din-wrapper').on('scroll', function(e) {
+  if ($('.din-wrapper').scrollTop() == 0) {
+    $('#header').css('overflow','visible');
+    $('#header').css('height',height);
+    $('#header').css('opacity','1');
+  }
+})
 
 
 // Event handler for swiping
@@ -41,7 +66,15 @@ $(document).swipe({
       }
     },
     up: function () {
-        console.log("up");
+      // Hide header logo when scrolling downward from top
+        if( $(window).scrollTop()==0 && $('#header').css('height') == height) {
+          
+          $('#header').velocity({
+          height:'0',
+          opacity:'0',
+          overflow:'hidden'
+        },50);
+        }
     },
     down: function () {
         console.log("down");
