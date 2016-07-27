@@ -109,7 +109,7 @@ hr {
   opacity: 1;
   overflow: visible;
   translate: none;
-  transition: transform 0.3s, opacity 0.3s;
+  /*transition: transform 0.3s, opacity 0.3s;*/
 }
 #header.hide {
   transform: translateY(-10px);
