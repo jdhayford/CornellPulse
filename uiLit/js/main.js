@@ -33,7 +33,8 @@ var campusRef = {"104West!":"West","Amit Bhatia Libe Café":"Central","Atrium Ca
 function buildEatery(obj,target) {
 	// TOFO: Add campus location.. somewhere
 	var row = document.createElement('div');
-	$(row).attr({'id':obj.location,'class':'din-row','location':campusRef[obj.location]}).appendTo(target);
+	var order = (obj.status == 'Open'?'open':'closed');
+	$(row).attr({'id':obj.location,'class':'din-row '+order,'location':campusRef[obj.location]}).appendTo(target);
 	$("<div>").addClass("din-logo")
 	    .append($('<img class="logo">').attr('src',obj.image.replace("https", "http")))
 	    .appendTo(row);
@@ -60,7 +61,8 @@ function buildEatery(obj,target) {
 // where input is an object instance from JSON
 function buildGym(obj,target) {
 	var row = document.createElement('div');
-	$(row).addClass('flex-row').appendTo(target);
+	var order = (obj.status == 'Open'?'open':'closed');
+	$(row).addClass('flex-row '+order).appendTo(target);
     var $top = jQuery('<div/>', { 'class': "flex-top" }).appendTo(row);
     $("<div>").addClass("flex-title")
 	    .html(obj.location)
