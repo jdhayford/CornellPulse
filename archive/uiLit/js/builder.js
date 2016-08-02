@@ -15,13 +15,8 @@ $('.navBlock').on('click', function(){
 var activeLocation = 0;
   // On picking a location block, use the location block info to filter eateries
   $('.locBlock').on('click', function(){
-      var old = activeLocation;
       activeLocation = $(this).attr('id')*1;
-      if (old < activeLocation) {
-        filterEateries('Right');
-      } else if (old > activeLocation) {
-        filterEateries('Left');
-      }
+      filterEateries();
   });
 
 // Hide header Logo when scrolling down
@@ -54,6 +49,8 @@ $('.din-wrapper').on('scroll', function(e) {
 })
 
 
+
+
 // Event handler for swiping
 $(document).swipe({
     left: function () {
@@ -63,7 +60,7 @@ $(document).swipe({
         return;
       } else if (state == 'din') {
         activeLocation = Math.min(3,activeLocation+1);
-        filterEateries('Right');
+        filterEateries();
       }
     },
     right: function () {
@@ -73,7 +70,7 @@ $(document).swipe({
           return;
         } else {
           activeLocation = Math.max(0,activeLocation-1);
-          filterEateries('Left');
+          filterEateries();
         }
       }
     },
@@ -94,29 +91,18 @@ $(document).swipe({
 });
 
 
-function filterEateries(dir) {
+function filterEateries() {
   $('.locBlock').removeClass('active');
   $('.locBlock[id="'+activeLocation+'"')
     .addClass('active');
   var filter = $('.locBlock.active').attr('filter');
-
-     $('.din-wrapper').velocity({
-      opacity:0
-     },{duration:100,
-        complete: function(els) {
-            setTimeout(function(){
-              $.each($('.din-row'), function (index, value) {
-                  if ($(value).attr('location').includes(filter)) {
-                      $(value).removeClass('hide');
-                    } else { $(value).addClass('hide');}
-                });
-              },25);
-              // $(els).attr('style','');
-              $(els).velocity("transition.slide"+dir+"In", {display:'flex',duration:125});
-              
-            }
-      });
-     
+    $('.din-row').removeClass('show');
+    $('.din-row').addClass('hide');
+    $.each($('.din-row'), function (index, value) {
+      if ($(value).attr('location').includes(filter)) {
+       $(value).removeClass('hide');
+        $(value).addClass('show');
+      }});
 }
 
 // Based on the state, toggle between Fitness and Dining
@@ -127,12 +113,16 @@ function updateState(state) {
         $('#loc').removeClass('hide');
         $('.fit-wrapper').addClass('hide');
         $('.din-wrapper').removeClass('hide');
-        $('.din-wrapper').velocity('transition.slideLeftIn',{display:'flex',duration:150});
       } else { 
         $('#loc').addClass('hide');
         $('.fit-wrapper').removeClass('hide');
         $('.din-wrapper').addClass('hide');
       }
+}
+
+function diningLeft() {
+  $('.din-wrapper').velocity('transition.slideLeftOut',{duration:100,stagger:300});
+  $('.din-wrapper').velocity('transition.slideRightIn',{duration:100,delay:200,stagger:300});
 }
 
 // Set up data visuals for fitness rows
@@ -188,9 +178,9 @@ function dinViz() {
 
     $.each($('.din-status'), function (index, value) {
       if ($(value).text() == "Open") {
-        $(value).css('color','#98ff82');
+        $(value).css('color','#1DB815');
       } else if ($(value).text() == "Closed") {
-        $(value).css('color','#ED6A5A');
+        $(value).css('color','#E11A1F');
       } else {
         $(value).css('color','rgb(245, 202, 102)');
       }
@@ -200,17 +190,19 @@ function dinViz() {
   // Returns a color from green to red depending
   // on the value [0,1] that it gets
   function getColor(value){
-      var beg = {"h":109.4,"s":100,"l":75.5}; // #98ff82
-      var end = {"h": 6.5,"s":80.3,"l":64.1}; // #ed6a5a
+      var beg = {"h":117.4,"s":95,"l":45}; // #98ff82
+      var end = {"h": 0,"s":90,"l":60}; // #ed6a5a
       //value from 0 to 1
       var mix = [
-          Math.round(beg.h-(beg.h-end.h)*value),
-          Math.round(beg.s-(beg.s-end.s)*value)+"%",
-          Math.round(beg.l-(beg.l-end.l)*value)+"%"
+          Math.round(tween(beg.h,end.h,value)),
+          Math.round(tween(beg.s,end.s,value))+"%",
+          Math.round(tween(beg.l,end.l,value))+"%"
           ];
 
       return "hsl("+mix.join(',')+")";
       
   }
 
-
+function tween(a,b,val) {
+  return a + (a<b?Math.abs(a-b)*val:-Math.abs(a-b)*val)
+}

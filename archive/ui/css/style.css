@@ -12,12 +12,7 @@
 @media only screen and (max-width: 500px) {
   .navBlock:hover {
     background:none !important;
-    color:#2b2b2b !important;
-  }
-
-  .navBlock.active {
-    background:#ea5e60 !important;
-    color:#2b2b2b !important;
+    color:#f2f2f2 !important;
   }
 
   .locBlock:hover {
@@ -38,24 +33,12 @@
   .din-title {
     font-size: 18px !important;
   }
-
-  #loc { height: 36px !important; }
-
-  .locBlock {
-  height: 32px !important; 
-  align-items: center !important;
-  }
-
-  .locBlock.active {
-    padding-bottom: 2px;
-  }
 }
 
 html,body {
   /*background-color: #CFD8DC;*/
   margin: 0;
   height:100%;
-  overflow: none;
 }
 
 hr {
@@ -76,23 +59,20 @@ hr {
 }
 
 .flex-container {
-  display: flex;
-  align-items: center;
-  
-  flex-direction: column;
-  height: 100%;
-  width:100%;
-  margin: auto;
-  font-family:sansationregular,"HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
+    display: flex;
+    align-items: center;
+    
+    flex-direction: column;
+    height: 100%;
+    width:100%;
+    margin: auto;
+    font-family:sansationregular,"HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
   font-size: 22px;
   color: #ecf0f2;
-
   /*background-color: #455A64;*/
-  background-image: url('white.png');
-  /*background-color: rgba(104,104,104,0.5);*/
+  background-image: url('pix2.png');
+  
 }
-
-
 
 #header {
   display: flex;
@@ -100,44 +80,26 @@ hr {
   flex:0 0 auto;
   max-width: 600px;
   margin-top: 5px;
-  width: 100%;
+  width: 90%;
+  height: auto;
   align-items: flex-end;
   justify-content: center;
   font-size: 50px;
   font-family: sansationregular;
   color: #f2f2f2;
   color: rgba(0,0,0,0);
-  height: auto;
-  opacity: 1;
-  overflow: visible;
-  translate: none;
-  /*transition: transform 0.3s, opacity 0.3s;*/
 }
-#header.hide {
-  transform: translateY(-10px);
-  height:0;
-  overflow: hidden;
-  opacity: 0;
-}
-
-
-
-
 
 #nav-wrapper {
-/*  display: flex;
+  display: flex;
   flex: 0 0 auto;
-  flex-direction: column;*/
-  padding:5px 0 5px 0;
-  margin: 0;
+  flex-direction: column;
+  margin: 5px;
   max-width: 600px;
-  width: 100%;
+  width: 90%;
   cursor: default;
-  padding-bottom: 0;
-  /*position: fixed;*/
+
 }
-
-
 
 #nav {
   display: flex;
@@ -147,9 +109,9 @@ hr {
   justify-content: space-around;
   font-size: 30px;
   /*color:#99BDCB;*/
-  color: #2b2b2b;
-  /*border: 1px solid  rgba(0,0,0,0.25);*/
-  box-sizing: all;
+  color: #f2f2f2;
+  border-top: 1px solid  #f2f2f2;
+  border-bottom: 1px solid  #f2f2f2;
 }
 
 .navBlock {
@@ -159,33 +121,15 @@ hr {
   margin: 0;
   align-items: center;
   justify-content: center;
-  background:#fafafa;
-  border: 1px solid  rgba(0,0,0,0.25);
-  /*border-top: 1px solid  #6b6b6b;*/
-  /*box-shadow: 0 -2px 8px rgba(0,0,0,0.25) inset;*/
-
 }
-
-.navBlock.active {
-  background-color: #ea5e60;
-  color: #3b3b3b;
-  /*box-shadow: 0 2px 8px rgba(0,0,0,0.25) inset;*/
-}
-div#din.navBlock{
-
-}
-div#din.navBlock.active{
-}
-div#fit.navBlock{
-
-}
-div#fit.navBlock.active{
-}
-
 .navBlock:hover {
-  background-color: #f3a2a3;
+  background-color: rgba(216,216,216,0.8);
+  color:#2b2b2b;
 }
-
+.navBlock.active {
+  background-color:rgb(216,216,216) !important;
+  color:#2b2b2b !important;
+}
 
 .material-icons {
   font-size: 36px;
@@ -217,35 +161,24 @@ div#fit.navBlock.active{
   height: 25px;
   margin: 0;
   justify-content: center;
-  color: rgba(56,56,56,0.9);
-  border-bottom: 2px solid  rgba(0,0,0,0.1);
-  box-sizing: border-box;
+  color: rgba(216,216,216,0.8);
   }
 .locBlock:hover {
-  /*align-self: flex-end;*/
-  border-bottom: 2px solid #5eeae8;
-  /*border-radius: 0 0 6px 6px;*/
+  align-self: flex-end;
+  border-bottom: 1px solid  #99BDCB;
+  border-radius: 0 0 4px 4px;
 }
 .locBlock.active {
-  align-items: flex-end !important;
-  color:#e11a1d !important;
-  border-bottom: 2px solid  #EA5E60 !important;
- /* box-shadow: 0 2px 4px rgba(0,0,0,0.22);*/
-}
-
-.open {
-  order:0;
-}
-
-.closed {
-  order: 1;
+  align-self: flex-end !important;
+  color:rgba(236,240,242,1) !important;
+  border-bottom: 1px solid  #cbc099 !important;
+  border-radius: 0 0 4px 4px !important;
 }
 
 .fit-wrapper {
   display: flex;
   overflow:scroll;
-  max-width: 600px;
-  width: 95%;
+  width:inherit;
   align-items: center;
   flex-direction: inherit;
   transform: none;
@@ -266,7 +199,8 @@ div#fit.navBlock.active{
     flex-shrink: 0;
     flex-direction: column;
     margin: 7px;
-    width: 100%;
+    max-width: 600px;
+    width: 90%;
     height: 80px;
     /*background-color: #CFD8DC;*/
     background:#5e5e5e;
@@ -332,16 +266,13 @@ div#fit.navBlock.active{
   
 }*/
 
-
 .din-wrapper {
   display: flex;
-  overflow: scroll;
-    max-width: 600px;
-  width: 95%;
+  overflow:scroll;
+  width:inherit;
   align-items: center;
   flex-direction: inherit;
   transition: all .1s;
-
 }
 
 .din-wrapper.hide {
@@ -358,10 +289,11 @@ div#fit.navBlock.active{
     flex-shrink: 0;
     flex-direction: row;
     margin: 7px;
-    width: 100%;
+    max-width: 600px;
+    width: 90%;
     height: 80px;
     /*background-color: #CFD8DC;*/
-    background-color: #5E5E5E;
+    background-color: #5e5e5e;
     border-radius: 4px;
     box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
     -webkit-touch-callout: none;
@@ -375,12 +307,24 @@ div#fit.navBlock.active{
 .din-row:hover {
   margin-top: 6px;
   margin-bottom: 8px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.25), 0 4px 8px rgba(0,0,0,0.22);
+  box-shadow: 0 9px 18px rgba(0,0,0,0.25), 0 6px 12px rgba(0,0,0,0.22);
+}
+
+.din-row.show {
+  transform:none; 
+  opacity: 1;
+  transition-delay: .1s;
+  transition: transform .1s, opacity .2s;
 }
 
 .din-row.hide {
-  display: none;
-
+  position: absolute;
+  transform: translate3d(0px, -10px, -10px);
+  height: 0;
+  margin: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: all .1s easing .1s;
 }
 
 
@@ -421,8 +365,8 @@ div#fit.navBlock.active{
     font-size: 16px;
     padding-left: 15px;
     flex:2;
-    align-items: flex-end;
-    padding-bottom: 10px;
+    align-items: flex-start;
+
     justify-content:flex-start;
     color:#c1c1c1;
 }
@@ -449,7 +393,7 @@ div#fit.navBlock.active{
   stroke-width: 5;
 }
 .track{
-  stroke: rgba(0, 0, 0, 0.3);
+  stroke: rgba(0, 0, 0, 0.1);
 }
 .fill{
   
