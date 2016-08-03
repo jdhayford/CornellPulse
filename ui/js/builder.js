@@ -102,7 +102,7 @@ function filterEateries(dir) {
 
      $('.din-wrapper').velocity({
       opacity:0
-     },{duration:100,
+     },{duration:25,
         complete: function(els) {
             setTimeout(function(){
               $.each($('.din-row'), function (index, value) {
@@ -110,9 +110,9 @@ function filterEateries(dir) {
                       $(value).removeClass('hide');
                     } else { $(value).addClass('hide');}
                 });
-              },25);
+              },50);
               // $(els).attr('style','');
-              $(els).velocity("transition.slide"+dir+"In", {display:'flex',duration:125});
+              $(els).velocity("transition.slide"+dir+"In", {display:'flex',delay:50, duration:150,easing:'linear'});
               
             }
       });
