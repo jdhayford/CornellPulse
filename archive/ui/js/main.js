@@ -33,25 +33,32 @@ var campusRef = {"104West!":"West","Amit Bhatia Libe Café":"Central","Atrium Ca
 function buildEatery(obj,target) {
 	// TOFO: Add campus location.. somewhere
 	var row = document.createElement('div');
-	$(row).attr({'id':obj.location,'class':'din-row','location':campusRef[obj.location]}).appendTo(target);
+	var order = (obj.status == 'Open'?'open':'closed');
+	$(row).attr({'id':obj.location,'class':'din-row '+order,'location':campusRef[obj.location]}).appendTo(target);
 	$("<div>").addClass("din-logo")
 	    .append($('<img class="logo">').attr('src',obj.image.replace("https", "http")))
 	    .appendTo(row);
-    var $left = jQuery('<div/>', { 'class': "din-left" }).appendTo(row);
+	var $cont = $("<div>").addClass("din-cont")
+	    .appendTo(row);
+    var $top = jQuery('<div/>', { 'class': "din-top" }).appendTo($cont);
+    // var $bot = jQuery('<div/>', { 'class': "din-bot" }).appendTo($cont);
     $("<div>").addClass("din-title")
 	    .html(obj.location.replace("Dining Room",""))
-	    .appendTo($left);
+	    .appendTo($top);
+    $("<div>").addClass("flex-bar")
+    	.data('percent',obj.surgeCount/obj.surgePeak)
+	    .appendTo($cont);
     $("<div>").addClass("din-status")
 	    .html(obj.status)
-	    .appendTo($left);
-
-    var $ind = jQuery('<div/>', { 'class': "flex-indicators" }).appendTo(row);
-	if (obj.status == 'Open'){
-		var $prog = $("<svg viewBox='0 0 80 80'>").addClass("progress")
-			.data("percent",obj.surgeCount/obj.surgePeak)
-			.html('<g class="icon icon-queue"><text x="25%" y="80%">&#xe804;</text></g><path class="track" transform="translate(-10 8) rotate(45 50 50)" d="M40,72C22.4,72,8,57.6,8,40C8,22.4,22.4,8,40,8c17.6,0,32,14.4,32,32"></path><path class="fill" transform="translate(-10 8) rotate(45 50 50)" d="M40,72C22.4,72,8,57.6,8,40C8,22.4,22.4,8,40,8c17.6,0,32,14.4,32,32"></path>')
-			.appendTo($ind);
-	}
+	    .appendTo($top);
+	
+ //    var $ind = jQuery('<div/>', { 'class': "flex-indicators" }).appendTo(row);
+	// if (obj.status == 'Open'){
+	// 	var $prog = $("<svg viewBox='0 0 80 80'>").addClass("progress")
+	// 		.data("percent",obj.surgeCount/obj.surgePeak)
+	// 		.html('<g class="icon icon-queue"><text x="25%" y="80%">&#xe804;</text></g><path class="track" transform="translate(-10 8) rotate(45 50 50)" d="M40,72C22.4,72,8,57.6,8,40C8,22.4,22.4,8,40,8c17.6,0,32,14.4,32,32"></path><path class="fill" transform="translate(-10 8) rotate(45 50 50)" d="M40,72C22.4,72,8,57.6,8,40C8,22.4,22.4,8,40,8c17.6,0,32,14.4,32,32"></path>')
+	// 		.appendTo($ind);
+	// }
     // $ind.append('<g class="icon icon-queue"><text x="25%" y="80%">&#xe804;</text></g><path class="track" transform="translate(-10 8) rotate(45 50 50)" d="M40,72C22.4,72,8,57.6,8,40C8,22.4,22.4,8,40,8c17.6,0,32,14.4,32,32"></path><path class="fill" transform="translate(-10 8) rotate(45 50 50)" d="M40,72C22.4,72,8,57.6,8,40C8,22.4,22.4,8,40,8c17.6,0,32,14.4,32,32"></path>');
 }
 
@@ -60,7 +67,8 @@ function buildEatery(obj,target) {
 // where input is an object instance from JSON
 function buildGym(obj,target) {
 	var row = document.createElement('div');
-	$(row).addClass('flex-row').appendTo(target);
+	var order = (obj.status == 'Open'?'open':'closed');
+	$(row).addClass('flex-row '+order).appendTo(target);
     var $top = jQuery('<div/>', { 'class': "flex-top" }).appendTo(row);
     $("<div>").addClass("flex-title")
 	    .html(obj.location)

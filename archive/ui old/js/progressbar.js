@@ -1666,7 +1666,6 @@ var Circle = function Circle(container, options) {
     // See this answer http://stackoverflow.com/a/10477334/1446092
     this._pathTemplate =
         'M 50,50 m 0,-{radius}' +
-        ' a {radius},{radius} 0 1 1 0,{2radius}'
         ' a {radius},{radius} 0 1 1 0,{2radius}' +
         ' a {radius},{radius} 0 1 1 0,-{2radius}';
 

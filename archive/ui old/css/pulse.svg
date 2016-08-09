@@ -15,9 +15,9 @@
    id="svg2"
    version="1.1"
    inkscape:version="0.91 r13725"
-   inkscape:export-filename="C:\Users\Jack\PulseReact\PulseReact\uiLit\css\transPulse.png"
-   inkscape:export-xdpi="72.561775"
-   inkscape:export-ydpi="72.561775"
+   inkscape:export-filename="C:\Users\tomha\Pulse Logo.png"
+   inkscape:export-xdpi="163.17967"
+   inkscape:export-ydpi="163.17967"
    sodipodi:docname="pulse.svg">
   <defs
      id="defs4" />
@@ -28,9 +28,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="1.8985817"
-     inkscape:cx="346.42816"
-     inkscape:cy="128.47241"
+     inkscape:zoom="1.1683824"
+     inkscape:cx="321.62561"
+     inkscape:cy="181.33148"
      inkscape:document-units="px"
      inkscape:current-layer="g4945"
      showgrid="false"
@@ -76,24 +76,31 @@
     <g
        id="g4945"
        transform="matrix(1.4543559,0,0,1.4543559,-9.1422707,-472.23526)">
-      <g
-         inkscape:groupmode="layer"
-         id="layer2"
-         inkscape:label="Back" />
-      <g
-         inkscape:export-ydpi="1753.5277"
-         inkscape:export-xdpi="1753.5277"
-         transform="matrix(0.91719244,0,0,0.91719244,-83.144332,880.62619)"
-         id="g4806" />
       <rect
          inkscape:export-ydpi="370.63199"
          inkscape:export-xdpi="370.63199"
-         y="991.93817"
-         x="6.9210687"
-         height="0.34235063"
-         width="510.40076"
+         y="994.01605"
+         x="20.716944"
+         height="0.30306196"
+         width="484.81146"
          id="rect4941"
-         style="fill:#e6e6e6;fill-opacity:1;stroke:#000000;stroke-width:1.29894745;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+         style="fill:#e6e6e6;fill-opacity:1;stroke:#be0101;stroke-width:1.19111192;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      <g
+         inkscape:export-ydpi="1753.5277"
+         inkscape:export-xdpi="1753.5277"
+         transform="matrix(0.91719244,0,0,0.91719244,-279.26171,880.62619)"
+         id="g4806">
+        <path
+           style="fill:#e11a1d;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:0.15191831px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+           d="m 349.83317,86.603166 10.6192,-9.92965 35.02133,0 10.15816,10.645876 0,11.100835 -18.26371,0 0,-7.530304 -19.1996,0 0,45.529957 19.22738,0 0,-9.08546 18.24553,0 0,12.38776 -11.60757,10.66518 -33.52865,0 -10.49107,-10.53588 z"
+           id="path4191"
+           inkscape:connector-curvature="0" />
+        <path
+           style="fill:none;fill-rule:evenodd;stroke:#ffffff;stroke-width:1.38730121;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           d="m 349.96144,123.74913 4.93111,0 1.6343,9.32168 1.63432,-27.64906 1.63431,36.81273 1.66248,-27.64904 1.66249,9.16369 4.9311,0"
+           id="path4776"
+           inkscape:connector-curvature="0" />
+      </g>
       <text
          inkscape:export-ydpi="370.63199"
          inkscape:export-xdpi="370.63199"
@@ -110,6 +117,21 @@
       <text
          inkscape:export-ydpi="370.63199"
          inkscape:export-xdpi="370.63199"
+         transform="scale(1.1244152,0.8893512)"
+         sodipodi:linespacing="125%"
+         id="text3336-0"
+         y="1117.9703"
+         x="155.0119"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:34.37479401px;line-height:125%;font-family:'Yu Gothic';-inkscape-font-specification:'Yu Gothic';letter-spacing:0px;word-spacing:0px;fill:#be0101;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;"
+         xml:space="preserve"><tspan
+           id="tspan4874-6"
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:'Yu Gothic';-inkscape-font-specification:'Yu Gothic';fill:#be0101;fill-opacity:1;"
+           y="1117.9703"
+           x="155.0119"
+           sodipodi:role="line">P U L S E</tspan></text>
+      <text
+         inkscape:export-ydpi="370.63199"
+         inkscape:export-xdpi="370.63199"
          sodipodi:linespacing="125%"
          id="text4937"
          y="955.75092"
@@ -120,27 +142,6 @@
            x="129.0834"
            id="tspan4939"
            sodipodi:role="line" /></text>
-      <g
-         inkscape:groupmode="layer"
-         id="layer3"
-         inkscape:label="C">
-        <path
-           style="fill:#e11a1d;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:0.15191831px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-           d="m 349.83317,86.603166 10.6192,-9.92965 35.02133,0 10.15816,10.645876 0,11.100835 -18.26371,0 0,-7.530304 -19.1996,0 0,45.529957 19.22738,0 0,-9.08546 18.24553,0 0,12.38776 -11.60757,10.66518 -33.52865,0 -10.49107,-10.53588 z"
-           id="path4191"
-           inkscape:connector-curvature="0"
-           transform="matrix(0.91719241,0,0,0.91719241,-83.144332,880.62619)" />
-        <path
-           transform="matrix(0.91719241,0,0,0.91719241,-83.144332,880.62619)"
-           style="fill:none;fill-rule:evenodd;stroke:#ffffff;stroke-width:1.79146302;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-           d="m 349.87183,121.576 2.35198,0 2.77187,9.16044 2.77191,-27.17078 2.77191,36.17592 2.8197,-27.17075 2.81969,9.00517 2.01167,0"
-           id="path4776"
-           inkscape:connector-curvature="0"
-           inkscape:export-filename="C:\Users\Jack\PulseReact\PulseReact\uiLit\css\centPulse.png"
-           inkscape:export-xdpi="76.398445"
-           inkscape:export-ydpi="76.398445"
-           sodipodi:nodetypes="cccccccc" />
-      </g>
     </g>
   </g>
 </svg>

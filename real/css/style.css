@@ -36,7 +36,7 @@
   }
 
   .din-title {
-    font-size: 20px !important;
+    font-size: 18px !important;
   }
 
   #loc { height: 36px !important; }
@@ -324,7 +324,6 @@ div#fit.navBlock.active{
   display: flex;
   width: 100%;
   height: 15px;
-
 }
 
 /*.bar {
@@ -389,7 +388,7 @@ div#fit.navBlock.active{
   display: flex;
   flex: 1;
   align-items: center;
-  margin: 0 10px 0 15px;
+  margin: 0 0 0 15px;
 }
 
 .logo {
@@ -397,21 +396,12 @@ div#fit.navBlock.active{
   max-width: 60px;
 }
 
-.din-cont {
-  display:flex;
-  flex:7;
-  flex-direction:column;
 
-}
-
-.din-top {
+.din-left {
     display: flex;
-    flex: 2;
-    /*box-shadow: inset 0 -5px 9px -5px rgba(25,25,25,0.1);*/
-}
-
-.din-bot {
-
+    flex: 4;
+    padding:10px 0px 0 15px;
+    flex-direction: column;
 }
 
 
@@ -419,9 +409,8 @@ div#fit.navBlock.active{
 .din-title {
     display: flex;
     flex:1 1 auto;
-    font-size: 22px;
+    font-size: 20px;
     justify-content: flex-start;
-    padding:10px 0px 0 15px
 
 }
 
@@ -429,12 +418,12 @@ div#fit.navBlock.active{
 
 .din-status {
     display: flex;
-    font-size: 18px;
+    font-size: 16px;
     padding-left: 15px;
     flex:2;
-    align-items: flex-start;
-    padding: 10px 10px 0 0;
-    justify-content:flex-end;
+    align-items: flex-end;
+    padding-bottom: 10px;
+    justify-content:flex-start;
     color:#c1c1c1;
 }
 

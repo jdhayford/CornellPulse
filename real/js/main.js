@@ -2,13 +2,13 @@
 
 // First we will have an AJAX call that hits the Rest API and populates the whole page
 $( document ).ready( function() {
-	
-
 	$.ajax({ 
 	   type: "GET",
 	   dataType: "json",
-	   url: "http://cornellpulse.com:3000/test",
+	   url: "http://cornellpulse.com:3000/api",
 	   success: function(data){    
+	   	console.log(data);    
+
 	   	// Loop through diners from Rest API
 	   	var container = $('.din-wrapper');
 	     data.diners.forEach( function(value,index) {
@@ -22,16 +22,9 @@ $( document ).ready( function() {
 	     	buildGym(value,container);
 	     });
 	     fitViz();
-
-	     expandDiner();
-	     expandGym();
 	   }
 	});
-
 });
-
-
-
 
 var campusRef = {"104West!":"West","Amit Bhatia Libe Café":"Central","Atrium Café":"Central","Bear Necessities Grill & C-Store":"North","Bear's Den":"Central","Becker House Dining Room":"West","Big Red Barn":"Central","Bus Stop Bagels":"Central","Café Jennie":"Central","Carol's Café":"North","Cook House Dining Room":"West","Cornell Dairy Bar":"Central","Goldie's Café":"Central","Green Dragon":"Central","Hot Dog Cart":"Central","Ivy Room":"Central","Jansen's Dining Room at Bethe House":"West","Jansen's Market":"West","Keeton House Dining Room":"West","Mac's Café":"Central","Martha's Café":"Central","Mattin's Café":"Central","North Star Dining Room":"North","Okenshields":"Central","Risley Dining Room":"North","Robert Purcell Marketplace Eatery":"North","Rose House Dining Room":"West","Rusty's":"Central","Sweet Sensations":"North","Synapsis Café":"Central","Terrace":"Central","Trillium":"Central"};
 
@@ -60,6 +53,7 @@ function buildEatery(obj,target) {
 			.html('<g class="icon icon-queue"><text x="25%" y="80%">&#xe804;</text></g><path class="track" transform="translate(-10 8) rotate(45 50 50)" d="M40,72C22.4,72,8,57.6,8,40C8,22.4,22.4,8,40,8c17.6,0,32,14.4,32,32"></path><path class="fill" transform="translate(-10 8) rotate(45 50 50)" d="M40,72C22.4,72,8,57.6,8,40C8,22.4,22.4,8,40,8c17.6,0,32,14.4,32,32"></path>')
 			.appendTo($ind);
 	}
+    // $ind.append('<g class="icon icon-queue"><text x="25%" y="80%">&#xe804;</text></g><path class="track" transform="translate(-10 8) rotate(45 50 50)" d="M40,72C22.4,72,8,57.6,8,40C8,22.4,22.4,8,40,8c17.6,0,32,14.4,32,32"></path><path class="fill" transform="translate(-10 8) rotate(45 50 50)" d="M40,72C22.4,72,8,57.6,8,40C8,22.4,22.4,8,40,8c17.6,0,32,14.4,32,32"></path>');
 }
 
 
