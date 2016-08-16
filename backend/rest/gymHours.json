@@ -1,0 +1,93 @@
+[
+{
+    "day": "Sunday",
+    "Newman": "12:00",
+    "namweN": "23:30",
+    "Teagle Up": "12:00",
+    "pU elgaeT": "18:00",
+    "Teagle Down": "12:00",
+    "nwoD elgaeT": "18:00",
+    "Noyes": "12:00",
+    "seyoN": "23:30",
+    "Appel": "1:00",
+    "leppA": "1:00"
+  },
+  {
+    "day": "Monday",
+    "Newman": "6:00",
+    "namweN": "23:30",
+    "Teagle Up": "7:00",
+    "pU elgaeT": "22:00",
+    "Teagle Down": "7:00",
+    "nwoD elgaeT": "22:00",
+    "Noyes": "7:00",
+    "seyoN": "23:30",
+    "Appel": "13:00",
+    "leppA": "23:30"
+  },
+  {
+    "day": "Tuesday",
+    "Newman": "6:00",
+    "namweN": "23:30",
+    "Teagle Up": "7:00",
+    "pU elgaeT": "22:00",
+    "Teagle Down": "7:00",
+    "nwoD elgaeT": "22:00",
+    "Noyes": "7:00",
+    "seyoN": "23:30",
+    "Appel": "13:00",
+    "leppA": "23:30"
+  },
+  {
+    "day": "Wednesday",
+    "Newman": "6:00",
+    "namweN": "23:30",
+    "Teagle Up": "7:00",
+    "pU elgaeT": "22:00",
+    "Teagle Down": "7:00",
+    "nwoD elgaeT": "22:00",
+    "Noyes": "7:00",
+    "seyoN": "23:30",
+    "Appel": "13:00",
+    "leppA": "23:30"
+  },
+  {
+    "day": "Thursday",
+    "Newman": "6:00",
+    "namweN": "23:30",
+    "Teagle Up": "7:00",
+    "pU elgaeT": "22:00",
+    "Teagle Down": "7:00",
+    "nwoD elgaeT": "22:00",
+    "Noyes": "7:00",
+    "seyoN": "23:30",
+    "Appel": "13:00",
+    "leppA": "23:30"
+  },
+  {
+    "day": "Friday",
+    "Newman": "6:00",
+    "namweN": "23:30",
+    "Teagle Up": "7:00",
+    "pU elgaeT": "20:00",
+    "Teagle Down": "7:00",
+    "nwoD elgaeT": "22:00",
+    "Noyes": "7:00",
+    "seyoN": "23:30",
+    "Appel": "13:00",
+    "leppA": "23:30"
+  },
+  {
+    "day": "Saturday",
+    "Newman": "10:00",
+    "namweN": "22:00",
+    "Teagle Up": "12:00",
+    "pU elgaeT": "18:00",
+    "Teagle Down": "12:00",
+    "nwoD elgaeT": "18:00",
+    "Noyes": "11:00",
+    "seyoN": "22:00",
+    "Appel": "9:00",
+    "leppA": "13:00"
+  }
+]
