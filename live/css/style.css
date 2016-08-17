@@ -166,26 +166,17 @@ hr {
 
 }
 
-.navBlock.active {
-  background-color: #ea5e60;
-  color: #3b3b3b;
-  /*box-shadow: 0 2px 8px rgba(0,0,0,0.25) inset;*/
-}
-div#din.navBlock{
 
-}
-div#din.navBlock.active{
-}
-div#fit.navBlock{
-
-}
-div#fit.navBlock.active{
-}
 
 .navBlock:hover {
   background-color: #f3a2a3;
 }
 
+.navBlock.active {
+  background-color: #ea5e60;
+  color: #3b3b3b;
+  /*box-shadow: 0 2px 8px rgba(0,0,0,0.25) inset;*/
+}
 
 .material-icons {
   font-size: 36px;
@@ -458,7 +449,7 @@ div#fit.navBlock.active{
   stroke-width: 5;
 }
 .track{
-  stroke: rgba(0, 0, 0, 0.3);
+  stroke: rgba(0, 0, 0, 0.2);
 }
 .fill{
   

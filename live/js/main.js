@@ -9,7 +9,6 @@ $( document ).ready( function() {
 	   dataType: "json",
 	   url: "http://cornellpulse.com:3000/api",
 	   success: function(data){    
-	   	console.log(data);
 	   	// Loop through diners from Rest API
 	   	var container = $('.din-wrapper');
 	     data.diners.forEach( function(value,index) {
@@ -25,6 +24,7 @@ $( document ).ready( function() {
 	     fitViz();
 
 	     expandDiner();
+	     $('.loading').toggle();
 	     expandGym();
 	   }
 	});
@@ -43,9 +43,11 @@ function buildEatery(obj,target) {
 	var row = document.createElement('div');
 	var order = (obj.status == 'Open'?'open':'closed');
 	$(row).attr({'id':obj.location,'class':'din-row '+order,'location':campusRef[obj.location]}).appendTo(target);
-	$("<div>").addClass("din-logo")
-	    .append($('<img class="logo">').attr('src',obj.image.replace("https", "http")))
-	    .appendTo(row);
+	if (obj.image) {
+		$("<div>").addClass("din-logo")
+		    .append($('<img class="logo">').attr('src',obj.image.replace("https", "http")))
+		    .appendTo(row);
+	}
     var $left = jQuery('<div/>', { 'class': "din-left" }).appendTo(row);
     $("<div>").addClass("din-title")
 	    .html(obj.location.replace("Dining Room",""))
@@ -53,12 +55,14 @@ function buildEatery(obj,target) {
     $("<div>").addClass("din-status")
 	    .html(obj.status)
 	    .appendTo($left);
-	console.log(obj.location,obj.surgeCount,obj.surgePeak);
+	console.log(obj.location,obj.status,obj.surgeCount,obj.surgePeak);
     var $ind = jQuery('<div/>', { 'class': "flex-indicators" }).appendTo(row);
 	if (obj.status == 'Open'){
+		var radial = (obj.surgeCount ? '<path class="track" transform="translate(-10 8) rotate(45 50 50)" d="M40,72C22.4,72,8,57.6,8,40C8,22.4,22.4,8,40,8c17.6,0,32,14.4,32,32"></path> '+
+				'<path class="fill" transform="translate(-10 8) rotate(45 50 50)" d="M40,72C22.4,72,8,57.6,8,40C8,22.4,22.4,8,40,8c17.6,0,32,14.4,32,32"></path>' :'');
 		var $prog = $("<svg viewBox='0 0 80 80'>").addClass("progress")
 			.data("percent",obj.surgeCount/obj.surgePeak)
-			.html('<g class="icon icon-queue"><text x="25%" y="80%">&#xe804;</text></g><path class="track" transform="translate(-10 8) rotate(45 50 50)" d="M40,72C22.4,72,8,57.6,8,40C8,22.4,22.4,8,40,8c17.6,0,32,14.4,32,32"></path><path class="fill" transform="translate(-10 8) rotate(45 50 50)" d="M40,72C22.4,72,8,57.6,8,40C8,22.4,22.4,8,40,8c17.6,0,32,14.4,32,32"></path>')
+			.html('<g class="icon icon-queue"><text x="25%" y="80%">&#xe804;</text></g>'+radial)
 			.appendTo($ind);
 	}
 }
