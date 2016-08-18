@@ -1,4 +1,4 @@
-// rest.js
+// timedRest.js
 
 // BASE SETUP
 // =============================================================================
@@ -22,9 +22,9 @@ var connection = mysql.createConnection({
   database: "cornellpulsedb"
 });
 
-
-
-app.get('/api', function (req, res) {
+// Set timed interval for the API to refresh its data
+var minutes = 1, the_interval = minutes * 60 * 1000;
+setInterval(function() {
 	// Set up json objects that we will populate and respond 
 	var data = {
 		gyms : [],
@@ -45,7 +45,6 @@ app.get('/api', function (req, res) {
 				rows.forEach(function(gym,index){
 					data.gyms.push({
 							location:gym.centerName,
-							// For count, find matching rest call data
 							count: tools.parseCount(gym.centerName,counts,'FacilityName'),
 							peak: gym.weekMax,
 							status:tools.gymTime(gym.centerName,times)});
@@ -97,9 +96,7 @@ app.get('/api', function (req, res) {
 							    if(a.location > b.location) return 1;
 							    return 0;
 							})
-							res.set('Content-Type', 'application/json; charset=utf-8');
-							res.header("Access-Control-Allow-Origin", "*");
-							res.send(data);
+							
 						})	
 					
 					});
@@ -107,9 +104,14 @@ app.get('/api', function (req, res) {
 			}})
 		}
 	})
+	console.log('Data updated!');
+	app.get('/api', function (req, res) {
+		res.set('Content-Type', 'application/json; charset=utf-8');
+		res.header("Access-Control-Allow-Origin", "*");
+		res.send(data);
+	})
 
-})
-
+	}, the_interval);
 
 
 
