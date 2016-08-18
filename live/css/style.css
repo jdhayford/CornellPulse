@@ -11,7 +11,7 @@
 
 @media only screen and (max-width: 500px) {
   .navBlock:hover {
-    background:none !important;
+    background:#fafafa !important;
     color:#2b2b2b !important;
   }
 
@@ -22,7 +22,7 @@
 
   .locBlock:hover {
     align-self: initial !important;
-    border: none !important;
+    border-bottom: 2px solid  rgba(0,0,0,0.1) !important;
   }
 
 

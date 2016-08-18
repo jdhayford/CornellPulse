@@ -52,7 +52,7 @@ function buildEatery(obj,target) {
     $("<div>").addClass("din-status")
 	    .html(obj.status)
 	    .appendTo($left);
-
+	console.log(obj.location,obj.surgeCount,obj.surgePeak);
     var $ind = jQuery('<div/>', { 'class': "flex-indicators" }).appendTo(row);
 	if (obj.status == 'Open'){
 		var $prog = $("<svg viewBox='0 0 80 80'>").addClass("progress")

@@ -26,7 +26,7 @@ var connection = mysql.createConnection({
 var minutes = 1, the_interval = minutes * 60 * 1000;
 setInterval(function() {
 	// Set up json objects that we will populate and respond 
-	var data = {
+	data = {
 		gyms : [],
 		diners : []
 	};
@@ -105,16 +105,16 @@ setInterval(function() {
 		}
 	})
 	console.log('Data updated!');
+	
+
+	}, the_interval);
+
+
 	app.get('/api', function (req, res) {
 		res.set('Content-Type', 'application/json; charset=utf-8');
 		res.header("Access-Control-Allow-Origin", "*");
 		res.send(data);
 	})
-
-	}, the_interval);
-
-
-
 
 	app.listen(3000, function() {
 		console.log("App listening on port 3000!");
