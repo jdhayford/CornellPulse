@@ -8,6 +8,7 @@ var activeLocation = 0;
 // On picking a nav block, use the info to toggle the Navigation state
 // between fitness and dining
 $('.navBlock').on('click', function(){
+
       state = $(this).attr('id');
       updateState(state);
   });
@@ -25,7 +26,7 @@ $('.navBlock').on('click', function(){
   });
 
 // Hide header Logo when scrolling down
-$('.din-wrapper').on({'mousewheel': function(event) {
+$('#din-wrapper').on({'mousewheel': function(event) {
     if( ($(window).scrollTop()==0 && $('#header').css('height') == height) && (event.originalEvent.detail > 0 || event.originalEvent.wheelDelta < 0 )) { //alternative options for wheelData: wheelDeltaX & wheelDeltaY
       //scroll down
       $('#header').velocity({
@@ -41,8 +42,8 @@ $('.din-wrapper').on({'mousewheel': function(event) {
 })
 
 // Show header Logo when reaching the top
-$('.din-wrapper').on('scroll', function(e) {
-  if ($('.din-wrapper').scrollTop() == 0) {
+$('#din-wrapper').on('scroll', function(e) {
+  if ($('#din-wrapper').scrollTop() == 0) {
     $('#header').velocity({
           height:height,
           'margin-top': '5px',
