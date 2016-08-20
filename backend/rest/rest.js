@@ -87,6 +87,8 @@ app.get('/api', function (req, res) {
 										surgePeak:surgeRows[index].weekMax,
 										// Take status from eatery API response
 										status: (status[newName] ? status[newName].status: (tools.parseCount(diner.centerName,counts,'DiningUnit') > 0 ?'Open' : 'Closed')),
+										// Get next time
+										next: (status[newName] ? status[newName].next:null),
 										// Pull image src for diner thumbnail
 										image: (status[newName] ? status[newName].src:null)
 										});

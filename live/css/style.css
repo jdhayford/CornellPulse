@@ -296,9 +296,9 @@ display: flex;*/
 }
 
 .flex-row:hover {
-  margin-top: 6px;
+/*  margin-top: 6px;
   margin-bottom: 8px;
-  box-shadow: 0 9px 18px rgba(0,0,0,0.25), 0 6px 12px rgba(0,0,0,0.22);
+  box-shadow: 0 9px 18px rgba(0,0,0,0.25), 0 6px 12px rgba(0,0,0,0.22);*/
 }
 
 .flex-row.expand {
@@ -405,9 +405,9 @@ display: flex;*/
 }
 
 .din-row:hover {
-  margin-top: 6px;
+/*  margin-top: 6px;
   margin-bottom: 8px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.25), 0 4px 8px rgba(0,0,0,0.22);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.25), 0 4px 8px rgba(0,0,0,0.22);*/
 }
 
 .din-row.expand {

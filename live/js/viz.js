@@ -23,6 +23,16 @@ function fitViz() {
     var percent = $(b).data().percent || 0;
     bar.animate(percent);  // Random number from 0.0 to 1.0
   });
+
+  $.each($('.flex-status'), function (index, value) {
+      if ($(value).text().includes("Open")) {
+        $(value).css('color','#98ff82');
+      } else if ($(value).text().includes("Closed")) {
+        $(value).css('color','#ED6A5A');
+      } else {
+        $(value).css('color','rgb(245, 202, 102)');
+      }
+    })
 }
   
 // Set up data visuals for dining rows
@@ -39,20 +49,12 @@ function dinViz() {
       $(value).children('.icon').css("fill",shade);
     });
     
-    $.each($('.flex-status'), function (index, value) {
-      if ($(value).text() == "Open") {
-        $(value).css('color','#98ff82');
-      } else if ($(value).text() == "Closed") {
-        $(value).css('color','#ED6A5A');
-      } else {
-        $(value).css('color','rgb(245, 202, 102)');
-      }
-    })
+    
 
     $.each($('.din-status'), function (index, value) {
-      if ($(value).text() == "Open") {
+      if ($(value).text().includes("Open")) {
         $(value).css('color','#98ff82');
-      } else if ($(value).text() == "Closed") {
+      } else if ($(value).text().includes("Closed")) {
         $(value).css('color','#ED6A5A');
       } else {
         $(value).css('color','rgb(245, 202, 102)');

@@ -45,14 +45,26 @@ function statusCall(url,cb) {
                     if (now >= meal.startTimestamp &
                         now <= meal.endTimestamp) {
                         status = "Open";
-                      if (index + 1 < array.length) {
-                        nextTime = array[index+1].startTimestamp;
-                      }
+                        // If location closes within 1:30 from now 
+                        if (meal.endTimestamp - now < 3600) {
+                          status = "Closes at ";
+                          var time = new Date(meal.endTimestamp*1000);
+                          var ampm = (time.getHours()>12?'pm':'am');
+                          var hr = (ampm == 'am'? time.getHours(): time.getHours()-12);
+                          hr = (hr == 0 ? '12':hr);
+                          var min = (time.getMinutes()>9?time.getMinutes():"0"+time.getMinutes());
+                          
+                          nextTime = hr+":"+min+' '+ampm;
+                        }
+
+                      // if (index + 1 < array.length) {
+                      //   nextTime = array[index+1].startTimestamp;
+                      // }
                     } 
                 })
             }
       // Format dining object fragments, fragments because they only contain a fraction of final information
-      eateries[eatery.name] = {status:status,src:oust(eatery.about,'images')[0]};
+      eateries[eatery.name] = {status:status,next:nextTime,src:oust(eatery.about,'images')[0]};
         })
       }
         cb(eateries);
