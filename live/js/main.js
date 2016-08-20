@@ -47,6 +47,18 @@ function buildEatery(obj,target) {
 		$("<div>").addClass("din-logo")
 		    .append($('<img class="logo">').attr('src',obj.image.replace("https", "http")))
 		    .appendTo(row);
+	} else {
+		// JANKY FIX, TODO: Find a cleaner way of incorporating these png files
+		if (obj.location.includes('Mac')) {
+			$("<div>").addClass("din-logo")
+		    .append($('<img class="logo">').attr('src','./css/Macs.png'))
+		    .appendTo(row);
+		} else {
+			$("<div>").addClass("din-logo")
+		    .append($('<img class="logo">').attr('src','./css/Terrace.png'))
+		    .appendTo(row);
+		}
+		
 	}
     var $left = jQuery('<div/>', { 'class': "din-left" }).appendTo(row);
     $("<div>").addClass("din-title")
