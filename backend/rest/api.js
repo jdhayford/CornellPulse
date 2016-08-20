@@ -34,6 +34,7 @@ function statusCall(url,cb) {
         var now = Math.floor(Date.now()/1000);
         var eateries = {};
         // Iterate through each eatery in the API response
+        if (response.body) {
         response.body.data.eateries.forEach(function (eatery){
             var status = "Closed";
             var nextTime = "";
@@ -53,6 +54,7 @@ function statusCall(url,cb) {
       // Format dining object fragments, fragments because they only contain a fraction of final information
       eateries[eatery.name] = {status:status,src:oust(eatery.about,'images')[0]};
         })
+      }
         cb(eateries);
     });
 }
