@@ -48,7 +48,7 @@ function statusCall(url,cb) {
                         // If location closes within 1:30 from now 
                         if (meal.endTimestamp - now < 3600) {
                           status = "Closes at ";
-                          var time = new Date(meal.endTimestamp*1000);
+                          var time = new Date(meal.endTimestamp*1000-14400000);
                           var ampm = (time.getHours()>12?'pm':'am');
                           var hr = (ampm == 'am'? time.getHours(): time.getHours()-12);
                           hr = (hr == 0 ? '12':hr);
