@@ -11,7 +11,7 @@
   border-radius: 50%;
   width: 20px;
   height: 20px;
-  background: #e11a1d;
+  background: #ea5e60;
   animation: spin .5s 0s infinite alternate both;
 }
 .loading .dot:nth-child(0) {
@@ -42,10 +42,10 @@
 @keyframes spin {
   from {
     transform: translateY(0);
-    box-shadow: 0 0 0 #e11a1d;
+    box-shadow: 0 0 0 #ea5e60;
   }
   to {
     transform: translateY(-20px);
-    box-shadow: 0 40px 0px #ea5e60;
+    box-shadow: 0 40px 0px #e11a1d;
   }
 }

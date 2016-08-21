@@ -25,34 +25,16 @@ $('.navBlock').on('click', function(){
       }
   });
 
-// Hide header Logo when scrolling down
-$('#din-wrapper').on({'mousewheel': function(event) {
-    if( ($(window).scrollTop()==0 && $('#header').css('height') == height) && (event.originalEvent.detail > 0 || event.originalEvent.wheelDelta < 0 )) { //alternative options for wheelData: wheelDeltaX & wheelDeltaY
-      //scroll down
-      $('#header').velocity({
-          height:'0',
-          margin: '0',
-          opacity:'0',
-          overflow:'hidden',
-          transform:'translateY(100px)'
-        },{duration:150,easing:"linear"});
-      return false;
-      }
-    }    
-})
 
-// Show header Logo when reaching the top
-$('#din-wrapper').on('scroll', function(e) {
-  if ($('#din-wrapper').scrollTop() == 0) {
-    $('#header').velocity({
-          height:height,
-          'margin-top': '5px',
-          opacity:'1',
-          overflow:'visible',
-          transform:'none'
-        },{duration:150,easing:"linear"});
-  }
-})
+// $('#din-wrapper').on('wheel',function(e) {
+//   var delta = e.originalEvent.deltaY;
+//   if (delta < 0 && $(this).scrollTop() == 0 && $('#header').attr('display') == 'none') { 
+//     console.log('Come back');
+//     $('#header').velocity('reverse');
+//   } else if (delta >= 0 && $(this).scrollTop() > 1 && $('#header').attr('display') != 'none'){
+//     $('#header').velocity("slideUp",{duration:200});
+//   }    
+// });
 
 
 // Event handler for swiping
@@ -79,14 +61,14 @@ $(document).swipe({
     },
     up: function () {
       // Hide header logo when scrolling downward from top
-        if( $(window).scrollTop()<10 && $('#header').css('height') == height) {
-          $('#header').velocity({
-            height:'0',
-            opacity:'0',
-            margin:'0',
-            overflow:'hidden'
-        },{duration:150,easing:"linear"});
-        }
+        // if( $(window).scrollTop()<10 && $('#header').css('height') == height) {
+        //   $('#header').velocity({
+        //     height:'0',
+        //     opacity:'0',
+        //     margin:'0',
+        //     overflow:'hidden'
+        // },{duration:150,easing:"linear"});
+        // }
     },
     down: function () {
 
