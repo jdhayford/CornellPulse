@@ -36,7 +36,7 @@ function fitViz() {
 }
   
 // Set up data visuals for dining rows
-function dinViz() {
+function radViz() {
     var max = 150.72259521484375;
     var shade;
     // Create each radial progress bar and color it
@@ -52,6 +52,16 @@ function dinViz() {
     
 
     $.each($('.din-status'), function (index, value) {
+      if ($(value).text().includes("Open")) {
+        $(value).css('color','#98ff82');
+      } else if ($(value).text().includes("Closed")) {
+        $(value).css('color','#ED6A5A');
+      } else {
+        $(value).css('color','rgb(245, 202, 102)');
+      }
+    })
+
+    $.each($('.flex-status'), function (index, value) {
       if ($(value).text().includes("Open")) {
         $(value).css('color','#98ff82');
       } else if ($(value).text().includes("Closed")) {

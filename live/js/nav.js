@@ -57,6 +57,9 @@ $(document).swipe({
           activeLocation = Math.max(0,activeLocation-1);
           filterEateries('Left');
         }
+      } else if (state == 'fit') {
+        state = 'din';
+        updateState(state);
       }
     },
     up: function () {
