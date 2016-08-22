@@ -12,6 +12,8 @@ $( document ).ready( function() {
   		timeout: 10000,
   		error: function () {
   			$('.loading').toggle();
+  			$('#alert').toggle()
+  			.html('Failed to retrieve data, please try again.');
   		},
 	   success: function(data){ 
 	   	console.log(data);   
@@ -32,6 +34,9 @@ $( document ).ready( function() {
 	     expandDiner();
 	     $('.loading').toggle();
 	     expandGym();
+
+	     if (!data.diners | !data.gyms) {$('#alert').toggle()
+  			.html('Failed to retrieve data, please try again.');}
 	   }
 	});
 
@@ -68,7 +73,7 @@ function buildEatery(obj,target) {
 	}
     var $left = jQuery('<div/>', { 'class': "din-left" }).appendTo(row);
     $("<div>").addClass("din-title")
-	    .html(obj.location.replace("Dining Room",""))
+	    .html(obj.location.replace("Dining Room","").replace('Grill & C-Store',''))
 	    .appendTo($left);
     $("<div>").addClass("din-status")
 	    .html(obj.status +(obj.next? ' ' + obj.next:''))
@@ -111,7 +116,6 @@ function buildGym(obj,target) {
 	    .appendTo($left);
     var $ind = jQuery('<div/>', { 'class': "flex-indicators" }).appendTo(row);
 	if (status != 'Closed'){
-		console.log(obj.count/obj.peak);
 		// var radial = (obj.surgeCount ? '<path class="track" transform="translate(-10 8) rotate(45 50 50)" d="M40,72C22.4,72,8,57.6,8,40C8,22.4,22.4,8,40,8c17.6,0,32,14.4,32,32"></path> '+
 		// 		'<path class="fill" transform="translate(-10 8) rotate(45 50 50)" d="M40,72C22.4,72,8,57.6,8,40C8,22.4,22.4,8,40,8c17.6,0,32,14.4,32,32"></path>' :'');
 		var $prog = $("<svg viewBox='0 0 80 80'>").addClass("progress")
