@@ -553,3 +553,16 @@ display: flex;*/
  transition: fill 1s;
 
 }
+
+#disclaimer {
+  color:#2b2b2b;
+  font-size: 12px;
+  width: 100%;
+  text-align: center;
+  order: 2;
+}
+
+#help {
+  top:0%;
+  position: absolute;
+}

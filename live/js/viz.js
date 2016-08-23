@@ -46,7 +46,6 @@ function radViz() {
       shade = getColor(percent);
       $(value).children('.fill').css("stroke",shade);
       $(value).children('.fill').css("stroke-dashoffset",(1-percent) * max);
-      console.log(value,shade);
       $(value).children('.icon').css("fill",(shade.includes('NaN')?'#98ff82':shade));
     });
     

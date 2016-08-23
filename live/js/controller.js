@@ -14,9 +14,11 @@ function filterEateries(dir) {
               // console.log($('.din-row'));
 
               $('.din-row').each(function (i,value) {
-                  if ( $(this).attr('location').includes(filter) ) { $(this).removeClass('hide');
-                  } else { 
-                    $(this).addClass('hide');
+                  if ($(this).attr('location')){
+                    if ( $(this).attr('location').includes(filter) ) { $(this).removeClass('hide');
+                    } else { 
+                      $(this).addClass('hide');
+                    }
                   }
                 });
 

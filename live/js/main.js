@@ -16,7 +16,6 @@ $( document ).ready( function() {
   			.html('Failed to retrieve data, please try again.');
   		},
 	   success: function(data){ 
-	   	console.log(data);   
 	   	// Loop through diners from Rest API
 	   	var container = $('#din-wrapper');
 	     data.diners.forEach( function(value,index) {
