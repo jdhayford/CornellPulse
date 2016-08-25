@@ -65,24 +65,42 @@ function updateState(state) {
       
   }
 
+  //Takes input of a fraction
+  // Performance mathematical operation to get the best wieghted
+  // score of traffic level.
+  function score(fraction) {
+    var offset = 0.225;
+    var multiplier = 7;
+    var score = (Math.tanh((fraction/2-offset)*multiplier) +1)/2;
+    return Math.min(Math.max(0,score),1);
+  }
+
   // Function enter expanded view upon selectin a row
   function expandDiner() {
-    $('.din-row').click(function() {
-      if ($(this).hasClass('expand')) {
-        $(this).removeClass('expand');
-      } else {
-        $(this).addClass('expand');
-      }
-    })
+    // $('.din-row').click(function() {
+    //   if ($(this).hasClass('active')) {
+    //     $(this).removeClass('active');
+    //     $(this).find('div.din-status').toggle();
+    //     $(this).find('div.din-extra').remove();
+    //     $(this).find('div.extra-status').remove();
+        
+    //   } else {
+    //     $(this).addClass('active');
+    //     // $(this).find('div.din-status').toggle();
+    //     $('<div class="din-extra">').appendTo($(this));
+    //     $('<div class="extra-status">').html('Here :Here').appendTo($(this).find('div.din-extra'));
+    //     $('<div class="din-extra">').appendTo($(this));
+    //   }
+    // })
   }
 
     // Function enter expanded view upon selectin a row
   function expandGym() {
-    $('.flex-row').click(function() {
-      if ($(this).hasClass('expand')) {
-        $(this).removeClass('expand');
-      } else {
-        $(this).addClass('expand');
-      }
-    })
+    // $('.flex-row').click(function() {
+    //   if ($(this).hasClass('expand')) {
+    //     $(this).removeClass('expand');
+    //   } else {
+    //     $(this).addClass('expand');
+    //   }
+    // })
   }

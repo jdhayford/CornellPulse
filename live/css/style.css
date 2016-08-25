@@ -190,6 +190,7 @@ display: flex;*/
   display: flex;
   flex: 1;
   height: 30px;
+  font-size: 30px;
   align-self: stretch;
   margin: 0;
   align-items: center;
@@ -418,10 +419,10 @@ display: flex;*/
   display: -webkit-flex;
     display: flex;
     flex-shrink: 0;
-    flex-direction: row;
+    flex-direction: column;
     margin: 7px;
     width: 100%;
-    height: 80px;
+    height: auto;
     /*background-color: #CFD8DC;*/
     background-color: #5E5E5E;
     border-radius: 4px;
@@ -432,6 +433,7 @@ display: flex;*/
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
+    transition: height .3s, background-color .2s;
 }
 
 .din-row:hover {
@@ -440,8 +442,9 @@ display: flex;*/
   box-shadow: 0 4px 10px rgba(0,0,0,0.25), 0 4px 8px rgba(0,0,0,0.22);*/
 }
 
-.din-row.expand {
-  /*height: auto;*/
+.din-row.active {
+  background-color: #6E6E6E;
+  transition: background-color .2s;
 
 }
 
@@ -450,6 +453,23 @@ display: flex;*/
 
 }
 
+.din-base {
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  flex-direction: row;
+  height: 80px;
+}
+
+.din-extra {
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  flex-direction: column;
+  height:25px;
+  font-size: 20px;
+  align-items: center;
+}
 
 .din-logo {
   display: -ms-flexbox;

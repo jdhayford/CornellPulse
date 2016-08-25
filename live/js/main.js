@@ -34,7 +34,7 @@ $( document ).ready( function() {
 	     $('.loading').toggle();
 	     expandGym();
 
-	     if (!data.diners | !data.gyms) {$('#alert').toggle()
+	     if (data.diners.length == 0 | data.gyms.length== 0) {$('#alert').toggle()
   			.html('Failed to retrieve data, please try again.');}
 	   }
 	});
@@ -53,36 +53,36 @@ function buildEatery(obj,target) {
 	var row = document.createElement('div');
 	var order = (obj.status == 'Closed'?'closed':'open');
 	$(row).attr({'id':obj.location,'class':'din-row '+order,'location':campusRef[obj.location]}).appendTo(target);
+	var cont = $("<div>").addClass('din-base').appendTo(row);
 	if (obj.image) {
 		$("<div>").addClass("din-logo")
 		    .append($('<img class="logo">').attr('src',obj.image.replace("https", "http")))
-		    .appendTo(row);
+		    .appendTo(cont);
 	} else {
 		// JANKY FIX, TODO: Find a cleaner way of incorporating these png files
 		if (obj.location.includes('Mac')) {
 			$("<div>").addClass("din-logo")
 		    .append($('<img class="logo">').attr('src','./css/Macs.png'))
-		    .appendTo(row);
+		    .appendTo(cont);
 		} else {
 			$("<div>").addClass("din-logo")
 		    .append($('<img class="logo">').attr('src','./css/Terrace.png'))
-		    .appendTo(row);
+		    .appendTo(cont);
 		}
 		
 	}
-    var $left = jQuery('<div/>', { 'class': "din-left" }).appendTo(row);
+    var $left = jQuery('<div/>', { 'class': "din-left" }).appendTo(cont);
     $("<div>").addClass("din-title")
 	    .html(obj.location.replace("Dining Room","").replace('Grill & C-Store',''))
 	    .appendTo($left);
     $("<div>").addClass("din-status")
 	    .html(obj.status +(obj.next? ' ' + obj.next:''))
 	    .appendTo($left);
-    var $ind = jQuery('<div/>', { 'class': "flex-indicators" }).appendTo(row);
+    console.log(obj.location,obj.surgeCount,obj.surgePeak);
+    var $ind = jQuery('<div/>', { 'class': "flex-indicators" }).appendTo(cont);
 	if (obj.status != 'Closed'){
-		// var radial = (obj.surgeCount ? '<path class="track" transform="translate(-10 8) rotate(45 50 50)" d="M40,72C22.4,72,8,57.6,8,40C8,22.4,22.4,8,40,8c17.6,0,32,14.4,32,32"></path> '+
-		// 		'<path class="fill" transform="translate(-10 8) rotate(45 50 50)" d="M40,72C22.4,72,8,57.6,8,40C8,22.4,22.4,8,40,8c17.6,0,32,14.4,32,32"></path>' :'');
 		var $prog = $("<svg viewBox='0 0 80 80'>").addClass("progress")
-			.data("percent",Math.min(obj.surgeCount/obj.surgePeak,1))
+			.data("percent",score(obj.surgeCount/obj.surgePeak))
 			.html('<g class="icon icon-queue"><text x="25%" y="80%">&#xe804;</text></g><path class="track" transform="translate(-10 8) rotate(45 50 50)" d="M40,72C22.4,72,8,57.6,8,40C8,22.4,22.4,8,40,8c17.6,0,32,14.4,32,32"></path><path class="fill" transform="translate(-10 8) rotate(45 50 50)" d="M40,72C22.4,72,8,57.6,8,40C8,22.4,22.4,8,40,8c17.6,0,32,14.4,32,32"></path>')
 			.appendTo($ind);
 	}
@@ -100,25 +100,14 @@ function buildGym(obj,target) {
     $("<div>").addClass("flex-title")
 	    .html(obj.location)
 	    .appendTo($left);
-    // $("<div>").addClass("flex-status")
-	   //  .html(status)
-	   //  .appendTo($left);
-
-    // var $right = jQuery('<div/>', { 'class': "flex-right" }).appendTo(row);
-    
-    // $("<div>").addClass("flex-bar")
-    // 	.data('percent',Math.min(obj.count/obj.peak,1))
-	   //  .appendTo($right);
 
     $("<div>").addClass("flex-status")
 	    .html(status)
 	    .appendTo($left);
     var $ind = jQuery('<div/>', { 'class': "flex-indicators" }).appendTo(row);
 	if (status != 'Closed'){
-		// var radial = (obj.surgeCount ? '<path class="track" transform="translate(-10 8) rotate(45 50 50)" d="M40,72C22.4,72,8,57.6,8,40C8,22.4,22.4,8,40,8c17.6,0,32,14.4,32,32"></path> '+
-		// 		'<path class="fill" transform="translate(-10 8) rotate(45 50 50)" d="M40,72C22.4,72,8,57.6,8,40C8,22.4,22.4,8,40,8c17.6,0,32,14.4,32,32"></path>' :'');
 		var $prog = $("<svg viewBox='0 0 80 80'>").addClass("progress")
-			.data("percent",Math.min(obj.count/obj.peak,1))
+			.data("percent",score(obj.count/obj.peak))
 			.html('<g class="icon icon-queue"><text x="25%" y="80%">&#xe804;</text></g><path class="track" transform="translate(-10 8) rotate(45 50 50)" d="M40,72C22.4,72,8,57.6,8,40C8,22.4,22.4,8,40,8c17.6,0,32,14.4,32,32"></path><path class="fill" transform="translate(-10 8) rotate(45 50 50)" d="M40,72C22.4,72,8,57.6,8,40C8,22.4,22.4,8,40,8c17.6,0,32,14.4,32,32"></path>')
 			.appendTo($ind);
 	}
