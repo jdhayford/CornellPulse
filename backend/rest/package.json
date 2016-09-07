@@ -9,7 +9,9 @@
     "knex": "^0.10.0",
     "moment": "^2.12.0",
     "mysql": "^2.10.2",
+    "node-datetime": "^1.0.0",
     "oust": "^0.2.4",
+    "promise": "^7.1.1",
     "unirest": "^0.4.2"
   }
 }

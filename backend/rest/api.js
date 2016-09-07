@@ -1,21 +1,48 @@
 // This javascript file contains the functions for API and DB calls
 
 var oust = require('oust');
+var unirest = require('unirest');
+// var datetime = require('node-datetime');
+
+// This script makes HTTP POST to acquire new token
+// Input: url of rest API
+// Returns: full api Response Body
+function getToken(token,cb) {
+    var req = unirest("POST", "https://api.ssit.scl.cornell.edu/token");
+    req.headers({
+      "content-type": "application/x-www-form-urlencoded",
+      "postman-token": "a2d2eeae-2b9c-b0f4-cc29-e91a30fdf91a",
+      "cache-control": "no-cache"
+    });
+
+    req.form({
+      "grant_type": "password",
+      "username": "activity",
+      "password": "NawWDeYhLhs4W*#T"
+    });
+
+    req.end(function (res) {
+      if (res.error) throw new Error(res.error);
+
+      cb(res.body);
+    }); 
+}
+
+
 
 // This script can make a HTTP request to the rest API
 // Input: url of rest API
 // Returns: full api Response Body
-function restCall(url,cb) {
-    var unirest = require('unirest');
+function restCall(url,token,cb) {
+    // var unirest = require('unirest');
     var rest; // will hold data response body
     // Set host name for RESR Api and authentication
-    var Request = unirest.get(url);
-    Request.auth({
-      user: 'ssit',
-      pass: "w!<AW!w_5[u'~D*4",
-      sendImmediately: true
+    var req = unirest.get(url);
+    req.headers({
+      "authorization": "Bearer "+token.access_token,
+      "content-type": "application/json"
     });
-    Request.header('Accept', 'application/json').end(function (response) {
+    req.header('Accept', 'application/json').end(function (response) {
         cb(JSON.parse(response.body));
     });
 }
@@ -25,7 +52,7 @@ function restCall(url,cb) {
 // Input: url of dining rest
 // Output: Dining objects with Status and Thumbnail
 function statusCall(url,cb) {
-    var unirest = require('unirest');
+    // var unirest = require('unirest');
     var rest; // will hold data response body
     // Set host name for RESR Api and authentication
     var Request = unirest.get(url);
@@ -72,6 +99,8 @@ function statusCall(url,cb) {
 }
 
 module.exports = {
+  getToken: getToken,
+
   restCall: restCall,
 
   statusCall: statusCall

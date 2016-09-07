@@ -22,6 +22,16 @@ var connection = mysql.createConnection({
   database: "cornellpulsedb"
 });
 
+api.getToken(null,function(val) {
+	token = val;
+});
+
+setInterval(function() {
+	api.getToken(null,function(val) {
+		token = val;
+	});
+},1200000);
+
 // Set timed interval for the API to refresh its data
 var minutes = 1, the_interval = minutes * 60 * 1000;
 setInterval(function() {
@@ -33,25 +43,25 @@ setInterval(function() {
 
 	
 
-	// Run query and store the response in a json
-	connection.query("SELECT centerName, MAX(count) AS 'weekMax'" +
-		"FROM `Gyms` WHERE datetime BETWEEN SYSDATE() - INTERVAL 7 DAY AND SYSDATE() GROUP BY centerName", function(err, rows){
-		if(err)	{
-			throw err;
-		}else{
-			// Pull in array from rest call
-			api.restCall('https://api.ssit.scl.cornell.edu/activity/fitness/50', function(counts) {		
-				// Push json object for each gym
-				rows.forEach(function(gym,index){
-					data.gyms.push({
-							location:gym.centerName,
-							count: tools.parseCount(gym.centerName,counts,'FacilityName'),
-							peak: gym.weekMax,
-							status:tools.gymTime(gym.centerName,times)});
-				});
-			});	
-		}
-	});
+	// // Run query and store the response in a json
+	// connection.query("SELECT centerName, MAX(count) AS 'weekMax'" +
+	// 	"FROM `Gyms` WHERE datetime BETWEEN SYSDATE() - INTERVAL 7 DAY AND SYSDATE() GROUP BY centerName", function(err, rows){
+	// 	if(err)	{
+	// 		throw err;
+	// 	}else{
+	// 		// Pull in array from rest call
+	// 		api.restCall('https://api.ssit.scl.cornell.edu/activity/fitness/50',token, function(counts) {		
+	// 			// Push json object for each gym
+	// 			rows.forEach(function(gym,index){
+	// 				data.gyms.push({
+	// 						location:gym.centerName,
+	// 						count: tools.parseCount(gym.centerName,counts,'FacilityName'),
+	// 						peak: gym.weekMax,
+	// 						status:tools.gymTime(gym.centerName,times)});
+	// 			});
+	// 		});	
+	// 	}
+	// });
 
 	// Run query and store the response in a json
 	connection.query( "SELECT centerName, MAX(count) AS 'weekMax'" +
@@ -66,9 +76,9 @@ setInterval(function() {
 				throw err;
 			}else{
 				// Pull in array from rest call
-				api.restCall('https://api.ssit.scl.cornell.edu/activity/dining/25', function(counts) {	
+				api.restCall('https://api.ssit.scl.cornell.edu/activity/dining/25', token, function(counts) {	
 					// Pull in array from rest call
-					api.restCall('https://api.ssit.scl.cornell.edu/activity/dining/5', function(surges) {
+					api.restCall('https://api.ssit.scl.cornell.edu/activity/dining/5', token, function(surges) {
 						// Pull in diner information from the eateries API
 						api.statusCall("https://now.dining.cornell.edu/api/1.0/dining/eateries.json",function (status) {
 							// Push json object for each gym
@@ -113,9 +123,15 @@ setInterval(function() {
 
 
 	app.get('/api', function (req, res) {
-		res.set('Content-Type', 'application/json; charset=utf-8');
-		res.header("Access-Control-Allow-Origin", "*");
-		res.send(data);
+		if (typeof(data) == "undefined") {
+				res.set('Content-Type', 'application/json; charset=utf-8');
+				res.header("Access-Control-Allow-Origin", "*");
+				res.send({gyms : [],diners : []});
+		} else {
+			res.set('Content-Type', 'application/json; charset=utf-8');
+			res.header("Access-Control-Allow-Origin", "*");
+			res.send(data);
+		}
 	})
 
 	app.listen(3000, function() {

@@ -36,6 +36,7 @@ function updateState(state) {
   $('.navBlock').removeClass('active');
   $("#"+state+"").addClass('active');
   if (state == 'din') {
+        $('#alert').toggle();
         $('#loc').removeClass('hide');
         $('#fit-wrapper').addClass('hide');
         $('#din-wrapper').removeClass('hide');
@@ -44,6 +45,9 @@ function updateState(state) {
         $('#loc').addClass('hide');
         $('#fit-wrapper').removeClass('hide');
         $('#din-wrapper').addClass('hide');
+        $('#alert')
+        .html('Fitness center data temporarily unavailable..<br> but we are working on it :)')
+        .toggle();
       }
 }
 

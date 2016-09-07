@@ -12,7 +12,7 @@ $( document ).ready( function() {
   		timeout: 10000,
   		error: function () {
   			$('.loading').toggle();
-  			$('#alert').toggle()
+  			$('#alert').hide()
   			.html('Failed to retrieve data, please try again.');
   		},
 	   success: function(data){ 
@@ -32,9 +32,10 @@ $( document ).ready( function() {
 
 	     expandDiner();
 	     $('.loading').toggle();
+	     $('#alert').hide();
 	     expandGym();
 
-	     if (data.diners.length == 0 | data.gyms.length== 0) {$('#alert').toggle()
+	     if (data.diners.length == 0 && data.gyms.length== 0) {$('#alert').toggle()
   			.html('Failed to retrieve data, please try again.');}
 	   }
 	});

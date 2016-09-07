@@ -8,7 +8,7 @@ var app        = express();                 // define our app using express
 var mysql = require('mysql');
 var times = require('./gymHours.json');
 
-var port = process.env.PORT || 8080;        // set our port
+// var port = process.env.PORT || 8080;        // set our port
 
 // get our custom functions
 var api = require('./api.js');
@@ -22,9 +22,15 @@ var connection = mysql.createConnection({
   database: "cornellpulsedb"
 });
 
-
+api.getToken(null,function(val) {
+	token = val;
+});
 
 app.get('/api', function (req, res) {
+	api.getToken(token,function(val) {
+		token = val;
+		console.log("Token has been updated!");
+	})
 	// Set up json objects that we will populate and respond 
 	var data = {
 		gyms : [],
@@ -33,26 +39,26 @@ app.get('/api', function (req, res) {
 
 	
 
-	// Run query and store the response in a json
-	connection.query("SELECT centerName, MAX(count) AS 'weekMax'" +
-		"FROM `Gyms` WHERE datetime BETWEEN SYSDATE() - INTERVAL 7 DAY AND SYSDATE() GROUP BY centerName", function(err, rows){
-		if(err)	{
-			throw err;
-		}else{
-			// Pull in array from rest call
-			api.restCall('https://api.ssit.scl.cornell.edu/activity/fitness/50', function(counts) {		
-				// Push json object for each gym
-				rows.forEach(function(gym,index){
-					data.gyms.push({
-							location:gym.centerName,
-							// For count, find matching rest call data
-							count: tools.parseCount(gym.centerName,counts,'FacilityName'),
-							peak: gym.weekMax,
-							status:tools.gymTime(gym.centerName,times)});
-				});
-			});	
-		}
-	});
+	// // Run query and store the response in a json
+	// connection.query("SELECT centerName, MAX(count) AS 'weekMax'" +
+	// 	"FROM `Gyms` WHERE datetime BETWEEN SYSDATE() - INTERVAL 7 DAY AND SYSDATE() GROUP BY centerName", function(err, rows){
+	// 	if(err)	{
+	// 		throw err;
+	// 	}else{
+	// 		// Pull in array from rest call
+	// 		api.restCall('https://api.ssit.scl.cornell.edu/activity/fitness/50',token, function(counts) {		
+	// 			// Push json object for each gym
+	// 			rows.forEach(function(gym,index){
+	// 				data.gyms.push({
+	// 						location:gym.centerName,
+	// 						// For count, find matching rest call data
+	// 						count: tools.parseCount(gym.centerName,counts,'FacilityName'),
+	// 						peak: gym.weekMax,
+	// 						status:tools.gymTime(gym.centerName,times)});
+	// 			});
+	// 		});	
+	// 	}
+	// });
 
 	// Run query and store the response in a json
 	connection.query( "SELECT centerName, MAX(count) AS 'weekMax'" +
@@ -67,9 +73,9 @@ app.get('/api', function (req, res) {
 				throw err;
 			}else{
 				// Pull in array from rest call
-				api.restCall('https://api.ssit.scl.cornell.edu/activity/dining/25', function(counts) {	
+				api.restCall('https://api.ssit.scl.cornell.edu/activity/dining/25',token, function(counts) {	
 					// Pull in array from rest call
-					api.restCall('https://api.ssit.scl.cornell.edu/activity/dining/5', function(surges) {
+					api.restCall('https://api.ssit.scl.cornell.edu/activity/dining/5',token, function(surges) {
 						// Pull in diner information from the eateries API
 						api.statusCall("https://now.dining.cornell.edu/api/1.0/dining/eateries.json",function (status) {
 							// Push json object for each gym
