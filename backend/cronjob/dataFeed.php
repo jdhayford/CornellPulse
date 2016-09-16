@@ -60,25 +60,28 @@ function diningReference() {
 // pulls its response and returns an associative array
 // of format "Location Name" -> Location Count
 function extractData($link) {
-	// Instantiate authentication variables
-	$username = "ssit";
-	$password = "w!<AW!w_5[u'~D*4";
+	$token = file_get_contents('token.txt');
 
-	// Begin curl session and set parameters for auth and style
-	$process = curl_init();
-	curl_setopt($process, CURLOPT_URL, $link);
-	curl_setopt($process, CURLOPT_HEADER, 1);
-	// Will return the response, if false it print the response
-	curl_setopt($process, CURLOPT_RETURNTRANSFER, true);
-	curl_setopt($process, CURLOPT_HTTPHEADER, array(
-    	'Content-Type: applicat
-			ion/json',
-    	'Accept: application/json'
-	));
-	curl_setopt($process, CURLOPT_USERPWD, $username . ":" . $password);
+	$curl = curl_init();
+	curl_setopt_array($curl, array(
+	  CURLOPT_URL => $link,
+	  CURLOPT_RETURNTRANSFER => true,
+	  CURLOPT_ENCODING => "",
+	  CURLOPT_MAXREDIRS => 10,
+	  CURLOPT_TIMEOUT => 30,
+	  CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+	  CURLOPT_CUSTOMREQUEST => "GET",
+	  CURLOPT_HTTPHEADER => array(
+	    "authorization: Bearer ".$token,
+	    "cache-control: no-cache",
+	    "content-type: application/json",
+	    "postman-token: d99b22f7-8c8d-f765-62e6-9049d19ca55f"
+	  ),
+	));	
 	// Execute curl to extract information from REST API
-	$return = curl_exec($process);
-	curl_close($process);
+	$return = curl_exec($curl);
+	echo($return);
+	curl_close($curl);
 
 	// Parse individual data instances from the curl response string
 	$data = preg_match_all('/\{.*?\}/',stripslashes($return),$centers);

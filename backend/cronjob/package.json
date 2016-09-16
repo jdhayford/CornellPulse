@@ -1,0 +1,7 @@
+{
+  "name": "node-token",
+  "dependencies": {
+    "oust": "^0.2.4",
+    "unirest": "^0.4.2"
+  }
+}
