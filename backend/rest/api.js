@@ -64,7 +64,7 @@ function statusCall(url,cb) {
         if (response.body) {
         response.body.data.eateries.forEach(function (eatery){
             var status = "Closed";
-            var nextTime = "";
+            
             // Iterate through each meal time for the eatery
             if (eatery.operatingHours[1].events) {
                 eatery.operatingHours[1].events.forEach(function(meal, index, array) {
@@ -74,14 +74,14 @@ function statusCall(url,cb) {
                         status = "Open";
                         // If location closes within 1:30 from now 
                         if (meal.endTimestamp - now < 3600) {
-                          status = "Closes at ";
-                          var time = new Date(meal.endTimestamp*1000-14400000);
-                          var ampm = (time.getHours()>12?'pm':'am');
-                          var hr = (ampm == 'am'? time.getHours(): time.getHours()-12);
-                          hr = (hr == 0 ? '12':hr);
-                          var min = (time.getMinutes()>9?time.getMinutes():"0"+time.getMinutes());
+                          status = "Open until " + meal.end;
+                          // var time = new Date(meal.endTimestamp*1000-14400000);
+                          // var ampm = (time.getHours()>12?'pm':'am');
+                          // var hr = (ampm == 'am'? time.getHours(): time.getHours()-12);
+                          // hr = (hr == 0 ? '12':hr);
+                          // var min = (time.getMinutes()>9?time.getMinutes():"0"+time.getMinutes());
                           
-                          nextTime = hr+":"+min+' '+ampm;
+                          nextTime = meal.end;
                         }
 
                       // if (index + 1 < array.length) {
@@ -91,7 +91,7 @@ function statusCall(url,cb) {
                 })
             }
       // Format dining object fragments, fragments because they only contain a fraction of final information
-      eateries[eatery.name] = {status:status,next:nextTime,src:oust(eatery.about,'images')[0]};
+      eateries[eatery.name] = {status:status,src:oust(eatery.about,'images')[0]};
         })
       }
         cb(eateries);

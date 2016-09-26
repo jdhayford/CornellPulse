@@ -46,7 +46,7 @@ function updateState(state) {
         $('#fit-wrapper').removeClass('hide');
         $('#din-wrapper').addClass('hide');
         $('#alert')
-        .html('Fitness center data temporarily unavailable..<br> but we are working on it :)')
+        .html('Fitness center data coming soon.')
         .toggle();
       }
 }

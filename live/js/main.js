@@ -2,8 +2,10 @@
 
 // First we will have an AJAX call that hits the Rest API and populates the whole page
 $( document ).ready( function() {
-	
+	update();
+});
 
+function update() {
 	$.ajax({ 
 	   type: "GET",
 	   dataType: "json",
@@ -13,7 +15,7 @@ $( document ).ready( function() {
   		error: function () {
   			$('.loading').toggle();
   			$('#alert').hide()
-  			.html('Failed to retrieve data, please try again.');
+  			.html('Failed to retrieve data, please try againn.');
   		},
 	   success: function(data){ 
 	   	// Loop through diners from Rest API
@@ -39,10 +41,7 @@ $( document ).ready( function() {
   			.html('Failed to retrieve data, please try again.');}
 	   }
 	});
-
-});
-
-
+	}
 
 
 var campusRef = {"104West!":"West","Amit Bhatia Libe Café":"Central","Atrium Café":"Central","Bear Necessities Grill & C-Store":"North","Bear's Den":"Central","Becker House Dining Room":"West","Big Red Barn":"Central","Bus Sleft Bagels":"Central","Café Jennie":"Central","Carol's Café":"North","Cook House Dining Room":"West","Cornell Dairy Bar":"Central","Goldie's Café":"Central","Green Dragon":"Central","Hot Dog Cart":"Central","Ivy Room":"Central","Jansen's Dining Room at Bethe House":"West","Jansen's Market":"West","Keeton House Dining Room":"West","Mac's Café":"Central","Martha's Café":"Central","Mattin's Café":"Central","North Star Dining Room":"North","Okenshields":"Central","Risley Dining Room":"North","Robert Purcell Marketplace Eatery":"North","Rose House Dining Room":"West","Rusty's":"Central","Sweet Sensations":"North","Synapsis Café":"Central","Terrace":"Central","Trillium":"Central"};

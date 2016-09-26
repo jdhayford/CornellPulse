@@ -62,7 +62,7 @@
   }
 
 html,body {
-  /*background-color: #CFD8DC;*/
+  background-color: #f6f6f6;
   margin: 0;
   height:100%;
   overflow: none;
@@ -98,7 +98,7 @@ hr {
   font-family:sansationregular,"HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
   font-size: 22px;
   color: #ecf0f2;
-
+  max-width: 700px;
   /*background-color: #455A64;*/
   background-image: url('white.png');
   /*background-color: rgba(104,104,104,0.5);*/
@@ -157,7 +157,7 @@ hr {
 display: flex;*/
   flex: 0 0 auto;
   flex-direction: column;
-  padding:5px 0 5px 0;
+  padding:0 0 5px 0;
   margin: 0;
   max-width: 600px;
   width: 100%;
