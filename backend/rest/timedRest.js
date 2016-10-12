@@ -126,7 +126,7 @@ setInterval(function() {
 		}
 	})
 	console.log('Data updated!');
-	data.gym = [];
+	data.gyms = [];
 
 	}, the_interval);
 
