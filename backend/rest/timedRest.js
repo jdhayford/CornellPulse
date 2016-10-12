@@ -69,6 +69,7 @@ setInterval(function() {
 		if(err)	{
 			throw err;
 		}else{
+			console.log(rows);
 			// Query the surge information
 			connection.query( "SELECT centerName, MAX(count) AS 'weekMax'" +
 			"FROM `surgeDiners` WHERE datetime BETWEEN SYSDATE() - INTERVAL 7 DAY AND SYSDATE() GROUP BY centerName", function(err, surgeRows){
@@ -96,10 +97,18 @@ setInterval(function() {
 										surgePeak:surgeRows[index].weekMax,
 										// Take status from eatery API response
 										status: (status[newName] ? status[newName].status: (tools.parseCount(diner.centerName,counts,'DiningUnit') > 0 ?'Open' : 'Closed')),
+										// Get information for the current meal
+										currentEvent: (status[newName] ? status[newName].currentEvent:null),
 										// Get next time
-										next: (status[newName] ? status[newName].next:null),
+										nextEvent: (status[newName] ? status[newName].nextEvent:null),
 										// Pull image src for diner thumbnail
-										image: (status[newName] ? status[newName].src:null)
+										about: (status[newName] ? status[newName].src:null),
+										// Get campus building location of the eatery
+										building: (status[newName] ? status[newName].eatery.location:null),
+										// Get short eatery description
+										eateryType: (status[newName] ? status[newName].eatery.eateryTypes[0]:null),
+										// Get list of dining items for the eatery
+										diningItems: (status[newName] ? status[newName].eatery.diningItems:null)
 										});
 							});
 							// Sort the diner objects alphabetically based on the new names
@@ -117,7 +126,7 @@ setInterval(function() {
 		}
 	})
 	console.log('Data updated!');
-	
+	data.gym = [];
 
 	}, the_interval);
 

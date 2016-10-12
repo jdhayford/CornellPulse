@@ -93,10 +93,18 @@ app.get('/api', function (req, res) {
 										surgePeak:surgeRows[index].weekMax,
 										// Take status from eatery API response
 										status: (status[newName] ? status[newName].status: (tools.parseCount(diner.centerName,counts,'DiningUnit') > 0 ?'Open' : 'Closed')),
+										// Get information for the current meal
+										currentEvent: (status[newName] ? status[newName].currentEvent:null),
 										// Get next time
-										next: (status[newName] ? status[newName].next:null),
+										nextEvent: (status[newName] ? status[newName].nextEvent:null),
 										// Pull image src for diner thumbnail
-										image: (status[newName] ? status[newName].src:null)
+										about: (status[newName] ? status[newName].src:null),
+										// Get campus building location of the eatery
+										building: (status[newName] ? status[newName].eatery.location:null),
+										// Get short eatery description
+										eateryType: (status[newName] ? status[newName].eatery.eateryTypes[0]:null),
+										// Get list of dining items for the eatery
+										diningItems: (status[newName] ? status[newName].eatery.diningItems:null)
 										});
 							});
 							// Sort the diner objects alphabetically based on the new names

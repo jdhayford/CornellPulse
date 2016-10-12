@@ -62,8 +62,10 @@ function statusCall(url,cb) {
         var eateries = {};
         // Iterate through each eatery in the API response
         if (response.body) {
-        response.body.data.eateries.forEach(function (eatery){
+          response.body.data.eateries.forEach(function (eatery){
             var status = "Closed";
+            var currentEvent;
+            var nextEvent;
             
             // Iterate through each meal time for the eatery
             if (eatery.operatingHours[1].events) {
@@ -71,27 +73,19 @@ function statusCall(url,cb) {
                     // If 
                     if (now >= meal.startTimestamp &
                         now <= meal.endTimestamp) {
-                        status = "Open";
-                        // If location closes within 1:30 from now 
-                        if (meal.endTimestamp - now < 3600) {
-                          status = "Open until " + meal.end;
-                          // var time = new Date(meal.endTimestamp*1000-14400000);
-                          // var ampm = (time.getHours()>12?'pm':'am');
-                          // var hr = (ampm == 'am'? time.getHours(): time.getHours()-12);
-                          // hr = (hr == 0 ? '12':hr);
-                          // var min = (time.getMinutes()>9?time.getMinutes():"0"+time.getMinutes());
-                          
-                          nextTime = meal.end;
+                        status = "Open";  
+                        currentEvent = meal;
+                         // If location closes within 1:30 from now 
+                        currentEvent.closingSoon = (meal.endTimestamp - now < 3600);
                         }
 
-                      // if (index + 1 < array.length) {
-                      //   nextTime = array[index+1].startTimestamp;
-                      // }
-                    } 
+                      if (index + 1 < array.length) {
+                        nextEvent = array[index+1];
+                      }
                 })
             }
       // Format dining object fragments, fragments because they only contain a fraction of final information
-      eateries[eatery.name] = {status:status,src:oust(eatery.about,'images')[0]};
+      eateries[eatery.name] = {status:status,src:oust(eatery.about,'images')[0],currentEvent:currentEvent,nextEvent:nextEvent,eatery:eatery};
         })
       }
         cb(eateries);

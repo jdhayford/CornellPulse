@@ -66,6 +66,7 @@ html,body {
   margin: 0;
   height:100%;
   overflow: none;
+  background-image: url('white.png');
 }
 
 hr {
@@ -100,7 +101,7 @@ hr {
   color: #ecf0f2;
   max-width: 700px;
   /*background-color: #455A64;*/
-  background-image: url('white.png');
+  /*background-image: url('white.png');*/
   /*background-color: rgba(104,104,104,0.5);*/
 }
 
