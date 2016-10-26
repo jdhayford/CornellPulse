@@ -8,11 +8,13 @@ var app        = express();                 // define our app using express
 var mysql = require('mysql');
 var times = require('./gymHours.json');
 
+
 // var port = process.env.PORT || 8080;        // set our port
 
 // get our custom functions
 var api = require('./api.js');
 var tools = require('./tools.js');
+var calc = require('./calc.js');
 
 // First  create a connection to the db
 var connection = mysql.createConnection({
@@ -27,6 +29,8 @@ api.getToken(null,function(val) {
 	token = val;
 	console.log("Token has been updated!");
 })
+
+
 
 // Run query and store the response in a json
 connection.query( "SELECT centerName, MAX(count) AS 'weekMax'" +
@@ -64,7 +68,9 @@ connection.query( "SELECT centerName, MAX(count) AS 'weekMax'" +
 									count5.forEach(function(din) {
 										if (din.DiningUnit == diner.DiningUnit) {five = din.CustomerCount - one - two - three - four};
 									})
-									console.log(diner.DiningUnit,one,two,three,four,five);
+
+									// Pull the service rate for the current location from the rates.json
+									console.log(diner.DiningUnit,calc.weightedActivity(diner,[one,two,three]));
 								})
 								})	
 						});
