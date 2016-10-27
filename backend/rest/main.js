@@ -35,7 +35,7 @@ setInterval(function() {
 
 // Set timed interval for the API to refresh its data
 var minutes = 1, the_interval = minutes * 60 * 1000;
-setInterval(function() {
+// setInterval(function() {
 	// Set up json objects that we will populate and respond 
 	data = {
 		gyms : [],
@@ -113,7 +113,7 @@ setInterval(function() {
 														if (din.DiningUnit == diner.centerName) {five = din.CustomerCount - one - two - three - four};
 													})
 													// Pull the service rate for the current location from the rates.json
-													var surge = calc.weightedActivity(diner,[one,two,three]);
+													var surge = calc.weightedActivity(diner,[one,two,three,four,five]);
 
 													
 													data.diners.push({
@@ -164,7 +164,7 @@ setInterval(function() {
 	console.log('Data updated!');
 	data.gyms = [];
 
-}, the_interval);
+// }, the_interval);
 
 
 	app.get('/api', function (req, res) {
