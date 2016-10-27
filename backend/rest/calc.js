@@ -17,11 +17,18 @@ function factorial (n) {
 // weighted activity level
 // Example weightedAverage(diner,[last minute activity,2 minutes ago activity])
 function weightedActivity(diner,arr) {
-	var rate = rates.data.filter(function (el)
-		{
-		return el.name == diner.DiningUnit;
-		})[0].rate;
+	console.log(arr);
 	var level = arr.length;
+	var location =rates.data.filter(function (el)
+		{
+		return el.name == diner.centerName;
+		});
+	if (level == 0 | !location[0]) {
+		return null;
+	}
+	// console.log(diner.centerName);
+	
+	var rate = location[0].rate;
 	var activity = 0;
 	arr.forEach(function(obj,i) {
 		activity += (level-i)*Math.max(obj,0);
